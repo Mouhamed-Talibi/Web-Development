@@ -1,0 +1,70 @@
+
+LIKE opertaor : 
+----------------------
+
+- There are two wildcards often used in conjunction with the operator: LIKE
+       The percent sign (%)           :   represents zero, one, or multiple characters
+       The underscore sign (_)       :  represents one, single character
+
+	SELECT col_name FROM tab_name WHERE col_name LIKE pattern
+
+exemple : SELECT age FROM users WHERE name LIKE "%uhame_";
+                 SELECT name FROM users WHERE name LIKE "a%" ;
+                 SELECT * FROM Customers WHERE CustomerName LIKE 'a__%';
+
+
+
+IN operator : 
+------------------
+
+	SELECT  column_name(s)  FROM  table_name  WHERE column_name  IN  (value1, value2, ...);
+
+exemple : SELECT name FROM users WHERE age IN (12 , 19 , 34);
+	SELECT name FROM users WHERE country NOT IN ("morocco" , "gemany" , "frensh");
+
+
+
+BETWEEN operator : 
+-----------------------------
+
+- The BETWEEN operator selects values within a given range. The values can be numbers, text, or dates. 
+	
+	SELECT  col_name FROM tab_name  WHERE  col_name  BETWEEN  value1 AND |  OR  value2 ;
+
+exemple:  SELECT  *  FROM  users  WHERE  age  BETWEEN 10  AND  20 ;
+exemple : SELECT  *  FROM  Products  WHERE Price  BETWEEN  10 AND 20  AND  CategoryID  NOT IN  (1,2,3);
+exemple : SELECT * FROM Products WHERE ProductName BETWEEN 'Carnarvon Tigers' AND 'Mozzarella di Giovanni' ORDER BY ProductName;
+
+
+NOT BETWEEN operator :
+------------------------------------
+
+	SELECT col_name FROM tab_name WHERE col_name NOT BETWEEN value1 AND value2;
+
+exemple : SELECT  name  FROM  users  WHERE  age NOT BETWEEN  5  AND  15;
+exemple : SELECT * FROM Orders WHERE OrderDate NOT  BETWEEN  '1996-07-01' AND '1996-07-31';
+
+
+________________________________________________________________________________________________________________________________________________________________________
+
+ALIASES in mysql :
+----------------------------
+
+- Aliases are used to give a table, or a column in a table, a temporary name.
+
+	SELECT  FUNCT(col_name)  AS  alias_name   FROM  tab_name WHERE  condition ;
+
+exemple : SELECT SUM(age) AS age_sum FROM users  WHERE id >= 5 ;
+exemple : SELECT COUNT(id) AS counting FROM users WHERE age BETWEEN 10 AND 20;
+exemple : SELECT  o.OrderID, o.OrderDate, c.CustomerName  FROM  Customers AS c, Orders  AS  o  WHERE  c.CustomerName='Around the Horn'  AND  c.CustomerID=o.CustomerID;
+
+
+
+
+
+
+
+
+
+
+

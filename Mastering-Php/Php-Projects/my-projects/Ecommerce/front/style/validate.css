@@ -1,0 +1,47 @@
+body {
+    font-family: 'Ubuntu', sans-serif;
+    background-color: black; /* Light grey background for contrast */
+    color: #333; /* Dark text color */
+    margin: 0;
+    padding: 20px;
+}
+
+.tbl {
+    width: 80%; /* Table width */
+    margin: 20px auto; /* Center the table */
+    border-collapse: collapse; /* Remove double borders */
+    background-color: white; /* White background for the table */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.tbl th, .tbl td {
+    padding: 15px; /* Cell padding */
+    text-align: left; /* Align text to the left */
+    border-bottom: 1px solid #ddd; /* Light grey border for rows */
+}
+
+.tbl th {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white; /* White text for header */
+}
+
+.tbl tr:hover {
+    background-color: #f1f1f1; /* Light grey on hover */
+}
+
+button[type="submit"] {
+    display: block; /* Center the button */
+    margin: 20px auto; /* Center margin */
+    padding: 10px 20px; /* Padding for the button */
+    background-color: #28a745; /* Bootstrap success color */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+button[type="submit"]:hover {
+    background-color: #218838; /* Darker green on hover */
+}

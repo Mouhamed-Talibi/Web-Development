@@ -1,0 +1,148 @@
+- Every file has the (.blade.php) we have to write in it by the blade synthax -> search in laravel documentation of : [ blade templates ]
+- [ rouutes folder ] : this folder is the respnsible of calling views.
+- to define a variable with blade synthax : [ @php $varibiable='value' @endphp ]
+- to print a varibale we use thi synthax : [ {{$variable}} ] 
+- search in the documentation of laravel for ( artisan )
+
+- web.php file in the [ routes ] must not have all the logic of the project 
+- controllers where should the logic of the project be written [ classes inside the controllers ]
+- we call the class in the routes like this : [ Route::get('/path', [ControllerName::class, 'nameAction']) ]
+
+- @dd -> diedump : it print an array and it stopped all codes below it
+- remeber that we create a folder for every resource we have in the [ views ] folder 
+    for example : 
+        views/ 
+            posts/
+                index.blade.php (we use name -- index -- because it depend on get all posts) 
+            users/
+                index.blade.php (we use name -- index -- because it depend on get all users)
+
+- in the controller we write in the view : 
+    return view("folder.filename"); -> return view('posts.index', compact("all_posts")); 
+- search for [ actions handeled by resource controller ]
+
+- url parameter 
+    : Route::get('/posts/{post}', [ControllerName, 'index']);
+    {daynamic-data} -> everything daynamic we write it between brackets, we use it to run a query to get the data 
+- link the files : 
+    for exmaple when we have some actions in a table like show, edit or delete , we write in the 
+        href='foldername/{{$data['fied']}}': ( <a href="/posts/{{$post['id']}}" class="btn btn-primary">View</a> )
+
+- creating shortcuts to the route : 
+    Route::get('/posts', [PostController::class, 'indexAction'])->name("posts.index");
+    posts.index : it is the route name, and it allows us to access this route simply and easily
+- how to use the route name in blade files : 
+    <a href="{{route('posts.index', $post['id'])}}" class="btn btn-primary">View</a>
+    {{route('posts.index', $post['id'])}} : is the use of the route name
+    we use the route name when we have a long url 
+
+- if we have a lot of html files that have the same code , we should use the layout , to simplify the process of changing
+    something when we want to change it someday
+    we create the folder layouts in the view and inside it we create ( app.blade.php ) file that will has the same 
+        html codes in all pages 
+
+- in the app.blade.php we write in the place of different content between pages this : [ yield("yeildText")] and in the
+    when we want to use the commmon template we write [ @extends('layouts.app')] && [ @section('yeildText') @endsection]
+
+- steps to create a layout : 
+    1: put the lines of code those are the same in mutltiple files 
+    2: write the yield('text')
+    3: go to the files which you cut the same codes 
+    4: add @extends('layouts.app')
+    5: add @section('')
+    6: write the different codes
+    7: end the section @endsection
+
+- to avoid excuting route dynamic varibales , you have to write any static route above the dynamic ones
+    example : [
+        Route::get('/posts/create', [PostController::class, 'createAction'])->name('posts.create'); -> static
+        Route::get('/posts/{post}', [PostController::class, 'showAction'])->name("posts.show"); -> dynamic
+    ]
+
+- page expired !
+    The solution is to write below the line of the form this tag : 
+    @csrf -> it allow the page to be not expired 
+    !! remeber that any form you write it should has this directive below it 
+
+- Global helper methods : 
+    to_coute('routename'); -> this line redirect you to the route that you enter its name 
+    request()->all() : get all the data from post form 
+    !! also we can get the data like this  :
+        $field= request()->field_name;
+        $field= request()->field_name;
+        EXAMPLE : 
+            $title = requets()->tilte;
+
+- When we want to update data : 
+    in the form method we write -> method='Post'
+    below the form line we write the @csrf 
+    and below the @csrf we write -> @method('PUT')
+
+-----------------------------------------------------------------------------------------------------------------------
+
+                                            [ DATABASE CHAPTER ]
+
+- migrations : they are a lot of files where we write the sql codes to communicate with database 
+- the migrations folder exists in : 
+    database/migrations 
+- for available comumn types in migrations search for [ laravel migrations column types ]
+
+- if you want to add more fields to an exsting table you have to create new migration 
+    example: php artisan make:migration add_fieldsname_to_posts_table
+
+- up() method :
+    from it we create columns in a table 
+- drop() method : 
+    from it we can delete columns 
+- Search in laravel documentation for [ eloquant model : Retrieving models ]
+
+- search for [ route model binding ]
+- search for [ forign keys ] in laravel  documentation 
+    $table->unsignedBigIneteger('column');
+    $table->forign('columns')->references('colums')->on('table_name');
+    example: 
+        $table->unsignedBigIneteger('user_id');
+        $table->forign('user_id')->references('is')->on('users');
+
+- to add fields which have foreign keys serach for [ eloquent relashioships ] in documentation 
+    exmaple : this code should be written in the Post model :
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+    !! the name of the method is very important , if you give it another name you have to add the foreign key field 
+    public function postCreator(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    in the show page , the creator name should be dynamic like this : [ Name : {{$post->user->name }}]
+
+- the orm of laravel is : Eloquent , its idea is to implement database codes as functions we use it in the model like 
+    Post::all()
+- laravel orm implement the [ Active record ] Design pattern 
+    to learn more about it search for [ laravel eloquent ]
+
+- Date format in laravel : 
+    {{$post->created_at->format('D,M,Y')}}
+    {{$post->created_at->addDays(35)->format('D,M,Y')}}
+- master date format in laravel , search for [ Laravel Carbon ] 
+
+- validate the data : 
+    request()->validate([
+        'title'=>['required'],
+        'creator'=>['required'],
+        'description'=>['required'],
+    ]);
+
+- global helper method : [ old('field_name') ]
+    exmaple: value="{{old('title')}}"
+
+- when we have a select options , we need to validate the option id is exists in the database :
+    solution : 
+        request()->validate([
+        'postCreator' => ['required', 'exists:table_name, fieldname'];
+            Example : 
+                'postCreator' => ['required', 'exists:users, id'];
+    ]);
+
+- follow the laravel news at : laravel-news.com 
+- follow larajobs.com -> it is a website that find you the laravel jobs 

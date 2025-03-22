@@ -1,0 +1,25 @@
+php artisan serve  
+    : run laravel server 
+php artisan 
+    : gives you list of artisan commands
+php artisan list 
+    : also it gives you a list of artisan commands 
+
+php artisan make:controller Controller_name 
+    : create new controller 
+php artisan make:migration create_tablename_table
+    : create new migration for the table 
+    ! it is important to respect the format of the command and the name of the table
+    ! all tables names must be in the plural : post ✖ posts ✔
+        Example -> php artisan make:migration create_posts_table
+
+php artisan migrate 
+    : migrate all tables in the database 
+php artisan migrate:fresh 
+    : remove all migrations and then re run them 
+php artisan make:model modelName
+    : create new model
+php artisan tinker 
+    : php command line that allow you to run queries without routes 
+        exmaple: 
+            Post::all(); -> if you write it in the tinker it will get uou all posts w

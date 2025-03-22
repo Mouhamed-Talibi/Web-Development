@@ -1,0 +1,5 @@
+# Prevent Directory Listing 
+Options -indexes 
+
+# Print Error Message
+ErrorDocument 403 "Sorry, You Don't Have Access To These Resources !"

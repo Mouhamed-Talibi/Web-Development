@@ -1,0 +1,96 @@
+/* General container styles */
+.container {
+    width: 60%;
+    margin: 0 auto;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px grey;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+h3{
+    margin-left: 295px;
+}
+
+/* Styling the labels */
+label {
+    font-weight: 500;
+    font-size: 16px;
+    display: block;
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+/* Styling the inputs */
+input[type="text"], 
+input[type="number"],
+textarea {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Styling the select dropdown */
+select {
+    width: 85%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Button styles */
+button {
+    background-color: #28a745; /* Green color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Styling the image */
+img {
+    display: block;
+    margin: auto;
+    max-width: 150px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+/* Styling the file input */
+input[type="file"] {
+    display: none;
+}
+
+/* Aqua color for the file label */
+#image-lab {
+    background-color: #0066ff; /* Aqua color */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+#image + label:hover {
+    background-color: #00cccc;
+}
+
+#add{
+    margin-left: 10px;
+}

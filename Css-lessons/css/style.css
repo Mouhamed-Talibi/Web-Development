@@ -1,0 +1,123 @@
+
+.parent {
+    background-color: #534949;
+    padding: 20px;
+    height: 500px;
+    display: flex;
+}
+
+.parent div {
+    padding: 10px;
+    margin: 10px;
+}
+
+.child-1 {
+    background-color: #ddfc;
+    align-self: center;
+    flex-basis: 200px;
+}
+
+.child-2 {
+    background-color: rgba(53, 53, 146, 0.8);
+    flex-grow: 1;
+}
+
+.child-3 {
+    background-color: rgba(39, 121, 70, 0.8);
+    flex-grow: 1;
+}
+
+/* grid system */
+    .grid-parent {
+        padding: 20px;
+        margin: 20px;
+        background-color: rgba(216, 180, 17, 0.8);
+        display: grid;
+        height: 500px;
+        grid-template-columns: repeat(4 , minmax(100px, 1fr));
+        gap: 10px 10px;
+    }
+
+    .container {
+        max-width: 1000px;
+    }
+
+    .grid-parent div {
+        background-color: rgb(30, 146, 175);
+    }
+
+    .grid-parent .item1 {
+        background-color: #534949;
+        color: #ddfc;
+        grid-column: 1 / 4;
+    }
+
+    .grid-parent .item3 {
+        grid-row: 4 / 5;
+    }
+
+    /* animations */
+    .animations-container {
+        background-color: #222;
+        height: 900px;
+    }
+
+    .animations-container div {
+        height: 100px;
+        width: 100px;
+        background-color: yellow;
+        animation-name: animated;
+        animation-duration: 3s;
+        animation-iteration-count: 2;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes animated {
+        0% {
+            translate: 0 0;
+            rotate: 0;
+        }
+        25% {
+            translate: 0 500px;
+            border-radius: 20px;
+            background-color: white;
+            rotate: 90deg;
+        }
+        50% {
+            translate: 900px 500px;
+            border-radius: 50px;
+            background-color: red;
+            rotate: 180deg;
+        }
+        75% {    
+            translate: 900px 0;
+            background-color: aqua;
+            rotate: 210deg;
+        }
+        100% {    
+            translate: 0 0;
+            rotate: 360deg;
+            background-color: aquamarine;
+        }
+    }
+
+    /* css transitions  */
+    .transitions-contaier {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .transition {
+        background-color: rgba(49, 209, 129, 0.8);
+        padding: 10px;
+        align-items: center;
+        width: 300px;
+        border-radius: 5px ;
+        transition: all 0.6s ease-in  0.2s;
+    }
+
+    .transition:hover {
+        transform: scale(0.9);
+        rotate: 2deg;
+    }

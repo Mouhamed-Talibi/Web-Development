@@ -1,0 +1,357 @@
+[ Flexible box ]
+----------------
+
+for Parent :
+  ------
+    display: flex;
+        to start flexible box 
+
+    flex-direction: 
+        row         => default value 
+        row-reverse => reverse te=he flex row 
+        column      => organize elemnts vertically 
+        column-reverse=> reverse the column 
+
+    flex-wrap:
+        nowrap       => default value 
+        wrap         => to add a wrap for the added elements 
+        wrap-reverse => reverse the wrap
+
+    flex-flow :
+        the short hand for flew-direction & flex-wrap
+        * accept flex-direction flex-wrap
+        exmaple: 
+            flex-flow: row wrap;
+
+    justify-content:
+        flex-start  => default value 
+        flex-end    => set the content in the end   
+        center      => center the content horizontally
+        space-between => make a space between content 
+        space-around  => make a space around the content 
+        space-evenly  => relate space-between and space-around
+
+    align-items:
+        stretch -> default value
+        flex-start;
+        flex-end; 
+        center;
+
+    align-content:
+        stretch -> default value
+        flex-start;
+        flex-end;
+        space-around;
+        space-between;
+
+
+for child :
+   -----
+
+    flex-grow:
+        0 -> default value 
+
+    flex-shrink:
+        1 -> default value 
+
+    order:
+        0 -> default value
+
+    felx-basis :
+        auto -> default value
+        * flex-basis respect the max-width of  an element 
+
+    short-hand for the flex :
+        flex: [ flex-grow ] [ flex-shrink ] [ flex-basis ] 
+        0 1 auto : default value of the flex;
+
+    align-self:
+        auto > default value 
+        flex-end;
+        flex-start;
+        center;
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+[ FILTERS ]
+-----------
+    filter:
+        greyscale(100%);
+        blur(10px);
+
+[ GRADIENTS ]
+-------------
+    linear-gradient: 
+        ( direction || angel, Color Stop 1, Color Stop 2, ....);
+        exmaple :
+            background-image: linear-gradient(to right, red, green);
+            background-image: linear-gradient(to top, red, green);
+            background-image: linear-gradient(to left, red, green);
+            background-image: linear-gradient(to bottom, red, green);
+
+[ Pointer events & Caret color ]
+--------------------------------
+caret-color: 
+    change the color of the pointer of writing in input fields 
+    value: colorName;
+
+pointer-events:
+    cancel any event in the page, like elements hovern animations etc...
+    values :    
+        auto; > default value 
+        none;
+
+[ Grid parent ]
+---------------
+    display: grid;
+
+    grid-template-columns: 
+        number if columns in [ px,%, auto, fraction, repeat(num_columns, space), Mix]
+        using repaet(num_columns, space)
+            exmaple: 
+                grid-template-columns: repeat(4, auto);
+
+    grid-template-rows:
+        number if rows in [ px,%, auto, fraction, repeat(num_columns, space), Mix]
+        using repaet(num_columns, space)
+            exmaple: 
+                grid-template-rows: repeat(3, 1fr);
+
+    row-gap:
+        making spaces between rows 
+    
+    column-gap: 
+        making spaces between columns
+
+    the short hand for the row & column gap is :
+        gap:
+            rows-value column-value 
+
+    justify-content:
+        the same value of the flex
+            flex-start;
+            center;
+            space-between
+            flex-end;
+
+    align-content:
+        flex-start;
+        flex-end;
+        center;
+
+    grid-template-areas:
+        the areas of grid 
+        here you write the grid names you want to give them grid colomns or rows 
+    
+    grid-area:
+        hefe you write the name of the grid you write in the property above 
+
+[ Grid Child ] :
+----------------
+    grid-column:
+        specify where the columns should start and end 
+        value: strart / end 
+            exmaple: 1 / 5
+            exmaple: 2 / span 5 -> means that will start from 2 and take 5 columns 
+
+    grid-row:
+        the same thing like the grid-column 
+
+    grid-area:
+        grid-row-start; grid-column-start; grid-row-end; grid-column-end;   
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[ 2D Transform Scale ]
+----------------------
+    transform:
+        scaleX;
+        scaleY;
+        scale -> for X and Y
+
+    transform:
+        rotate(value);
+            accept angles unites [ deg > degree | rad > radius | grad > gradiens | turn > turn ]
+
+    transform:
+        translate(X, Y);
+
+    transform:
+        skewX;
+        skewY;
+        skew;
+
+    transform:
+        matrix;
+            syntahx > matrix( scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY() )
+
+    transform-origin:
+        synthax [ 
+            deafult value > 50% 50% 0
+            2D transform > transform-origin(X, Y)
+            3D transform > transform-origin(X, Y, Z)
+                X-axis :
+                    You can write in it ( Css units [ px, rem, em ] | %  & keyword [left center right] )
+                Y-axis :
+                    You can write in it ( Css units [ px, rem, em ] | %  & keyword [top center bottom] )
+        ]
+
+[ 3D Transform ]
+----------------
+    transform3d(x, y, z, deg):
+        x , y , z  > from 0 to 1    
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[ Animation | Keyframes, Name, Duration ]
+-----------------------------------------
+    @keyframes animation-name {
+        from {
+            // you properties here 
+        }
+        to {
+            // your new properties here
+        }
+    }
+
+    to use the animation for an element :
+    element {
+        animation-name: 
+            your-animation-name-here;
+        animation-duration:
+            time in seconds 
+    }
+
+[ Animation | iteration count - timing function ]
+-------------------------------------------------
+    animation-iteration-count:
+        how many times the animation should be repeated 
+        infinite;
+        number;
+
+    animation-timing-function:
+        ease;
+        ease-in-out;
+
+    animation-direction:
+        normal > default value  
+        reverse > reverse the direction of the animation 
+        alterntate > animation went to the front then come back      
+        alternate-reverse
+
+    animation-delay:
+        you set the time in seconds from the animation should complete 
+        2s;
+        it may be negative value
+
+    animation-fill-mode:
+        foerwards > allow elemnt take its style from the last keyframe 
+        foerwards > allow elemnt take its style from the first keyframe 
+        foerwards > allow elemnt take its style from the first & the last keyframe 
+        null > default value 
+
+    animation-playig-state:
+        runing; > the nimation still running
+        paused > the animation should be paused
+
+    animation:  
+        * this is the shorthand of animation 
+        animation-name; animation-duration; animation-timing-function; animation-iteration-count; animation-direction;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[ Selectors Reference ]
+-----------------------
+    * :
+        select all page elements 
+
+    element other-element :
+        div p { // code here }
+
+    .class-name :   
+        target the class by ( . ) + class-name 
+
+    #id-name :
+        target an element using the id ( # ) + id-name
+
+    .parent .child :
+        target an element from its parent 
+
+    .class-one.class-two :
+        target an element exists in the two divs 
+        exmaple:
+            <div class="food category"></div>
+
+    .class-name div, 
+    .class-name p :
+        target any div in the current class 
+
+    element.class-name: 
+        target only this element in the class name 
+
+    .parent > .child :
+        target the direct child 
+
+    element + other-element :
+        it means the next selector 
+
+    [ Attribute ] :
+        we can style any element from its attribute 
+
+    element [ attribute ] :
+        we can style the element using the attribute value 
+
+    [ Attribute = value ] :
+        we can style an element using the att = val 
+
+    [ Attribute *= value ] :
+        it means containes a string 
+
+    [ Attribute ^= value ] :
+        it means start with a string 
+
+    element:first-child :
+        acces the first child 
+
+    element:last-child :
+        access the last child 
+
+    element:first-of-type :
+        access the first of element type 
+
+    element:last-of-type :
+        access the last of element type 
+
+    element:only-child :
+        the element must be the only child of the parent 
+
+    element:nth-child(number-child) :
+        acces the child through its number 
+
+    element:checked :
+        acces the checked inputs 
+
+    element:empty :
+        acces the empty elements 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[ Media queries & Responsive Design ]
+-------------------------------------
+    Synthax :
+        @media condition {
+            // block of code 
+        }
+
+        media range exmaple :
+            @media (min-width:500px) and (max-width:100px) {
+                background-color: black;
+                font-size: 19px;
+            }
+
+        * if you want a specific diplay design for a specicif screen you have to 
+            stop the media for the other screens ,wich not allow them to override your target
+
+[ After Css ]
+-------------
+    front end mentor > a site that has html & css challenges 

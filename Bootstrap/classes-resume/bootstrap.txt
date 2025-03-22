@@ -1,0 +1,90 @@
+// shortcuts :
+--------------
+    bg-colorName : 
+        the background color ( danger, primary, warning, secondary, success ...)
+
+    align-items-place : 
+        choose when to place elements horizontaly 
+
+    justify-content-position : 
+        choose when to place elements vertically
+
+    text-colorName : 
+        change the color of the text
+
+    alert alert-color :
+        specify the alert message
+
+    btn btn-color :
+        specify the style and the color of the botton 
+
+    btn btn-outline-color :
+        this style has the borders with the sapme color and when focus on the button it get the style of btn btn-color 
+    
+    btn-group :
+        group the buttons 
+
+    btn-toolbar :
+        create a toolbar of group buttons 
+
+    btn-group-size :
+        specify the size of thr group 
+
+    m-number : 
+        set the margin | note that the number represent 10 like 2 == 20px 
+
+    mt-num :
+        set the margin-top 
+
+    mb-num : 
+        set the margin bottom 
+
+    ml-num :
+        set the margin left 
+
+    mr-num :
+        set the margin right   
+    
+    w-number : 
+        set the width of an element | example : w-50 = width 50% 
+
+    card-img-top :
+        set a curve to the image from the top 
+
+    card-img-bottom :
+        set a curve to the from the bottom 
+    
+    dropdown-toggle :   
+        create the icon of drop down menu 
+
+    
+
+
+// Grid system : 
+----------------
+    * each column has 12 rows
+    * when we want to use the grid system we should create a prent div (.row)
+    * then we created divs inside the parent with the (.col-(num_of_rows)) | example : col-4 = 4 + 4 + 4 = 12
+    * columns sizes are four :
+        [ 
+            col    > xtra-small
+            col-sm > small screens 
+            col-md > medium screens 
+            col-lg > large screens 
+            col-xl > x-large screens 
+        ]
+
+    * usage of columns sizes : 
+        col-size-numsRows > example : col-lg-3 == Four colmns in the same level
+        advanced example  > col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2
+
+
+// Elements Position : 
+----------------------
+    * if you want to change the position of all cols in a row you have to put ( align-items-position ) in the row class
+    * if you want to change the position of one col in a row you have to put ( align-self-position ) in the col class
+
+
+// Colors :
+-----------
+    * when you want to change the color of a text you have to write (text-colorName)

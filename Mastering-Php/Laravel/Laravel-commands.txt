@@ -1,0 +1,157 @@
+composer create-project laravel/laravel your_project_name  
+    : this command to install laravel on your project 
+cd your_project_name   
+    : enter your project name to access the commands below 
+php artisan 
+    : give you all laravel commnads 
+php artisan serve 
+    : this command serve the app on the php developement server 
+
+php artisan make
+    : this command will show you all the tasks that will be created by the command make 
+php artisan make:controller controller_name controller_type(empty, resource, api..)
+    : this command will create new controller 
+php artisan make:component
+    : this command make a new component
+
+php artisan make:model model_name
+    : make new model , but when want to creat new model we have to creat a migration with it 
+php artisan make:model model_name -m || php artisan make:model model_name --migration 
+    : create new model with its migrations
+
+php artisan migrate
+    : migrate the migrations to the database 
+php artisan db:seed
+    : excute seeders
+php artisan make:seeder seerder_name
+    : create new seeder 
+php artisan db:seed --class=seeder_class_name 
+    : run the seeder command in the database 
+
+php artisan migrate:fresh --seed
+    : clear all the migrations and then import new seed 
+php artisan make:factory factory_name --model=model_name 
+    : create new factory for the model 
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+[ app folder ] : this folder is the most important folder in laravel, because we do 90% of our work on this folder 
+[ public folder ] : the only folder that user can access and see.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+how to connect database with laravel ? :
+    search for file -> .env
+    search for DB_DATABASE and then write your database name 
+
+seeders : 
+    their role is just to insert into the database some test values 
+when we want to pass data in the views folder , we can pass arrays and any data : 
+    Route::get('/filename', function(){
+        return view('filename', [
+            // here we write data as an array :
+            'id' => $_GET['id];
+            'name' => $_GET['name];
+        ]);
+    });
+when we want to use the vars in the view folder , we just need to echo the $varName.
+
+[ Example of passing data without class ]
+    Route::get('/salam/{nom}/{prenom}', function($nom, $prenom){
+        return view("salam", [
+            'nom'=>$nom,
+            'prenom'=>$prenom
+        ]);
+    });
+
+when we want to use a controller in laravel we have two ways : 
+[ the first ]  : 
+    is to use the namespace of the controller on top of the file: 
+    use App\Controllers\homeController;
+    Route::ge("/path", [homeController::class, 'method_from_class']);
+
+[ The second ] : 
+    is to use the namespace inside the []
+    Route::get("/path", [\App\Controllers\homeController::class,'method_name']);
+
+in the controller class we can redirect use to views page from the function view()
+    public function indexAction(){
+        return view("filename");
+    }
+
+to use the vars in the view page : 
+    {{$var_name}} && the file must be like this  : (filename.blade.php) 
+
+Blade : 
+    In simple terms, Blade is a templating engine in Laravel. It helps you create HTML pages mixed with PHP logic in 
+    an easy and readable way. [ {{$var_name}}]
+
+    - when we want to use the foreach with blade : 
+        @foreach{} | @foreach: @endforeach
+        
+    - when we want to use conditions in blade we just need to write the @ before the if : 
+        @if(count($languages) > 0)
+            // some code 
+        @endif
+
+    - unless : 
+        unless is the not if , unless === !if -> we use it for one condition not true 
+        @unless (count($languages) <= 0)
+            there is no languages yet 
+        @else
+            // do this 
+        @endunless 
+
+        @isset() | @endisset , @empty() | @endempty , @switch($var) | @endswitch
+
+    - creating variables in the blade :    
+        @php
+            @var = @var  + @var 
+        @endphp
+
+    - Include :
+        in blade when we wanto to include a file we replace the / by the -> ( . )
+        @include('includes/nav') -> @include('includes.nav')
+
+    - Comments : 
+        {{-- here write what you want--}}
+
+    - once : 
+        when we want to use something one time
+        @once | @endonce
+    
+    - extends : 
+        @extends("") -> we use it when we have some layouts 
+
+    - yield : 
+        @yield -> is used to define a placeholder section within a layout where content from child views can be injected.
+
+- Calling component : 
+    <x-component-name/> -> this line will call the component file 
+    <x-component-name prop='data'/> -> this line pass property to the component file 
+    @props(['prop1','prop2']) -> this line we use it in the component file when we want to pass data to this last one
+    <x-users-table :users="$users"/> -> those (:) tells the file about the type of the variable we passed to it 
+
+- ORM : 
+    orm -> Object Relational Mapping 
+    Resposible of adding, editing, deleting from database
+    eloquent orm : the orm of laravel framework
+
+
+compact(vars_names) : 
+    we use it in the controller_class when wa want to pass data to the veiws 
+    public function indexAction(Request $request){
+        $name = $request->name;
+        return view('hello', compact('name'));
+    }
+
+seeder example : 
+    DB::table('profiles')->insert([
+        'name'=>"Achraf afhim",
+        'email'=>Str::random(7).'@gmail.com',
+        'password'=>Hash::make('password')
+    ]);

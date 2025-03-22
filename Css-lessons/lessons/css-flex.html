@@ -1,0 +1,106 @@
+<!-- 
+        CSS FLEX BOX SYSTEM 
+        -------------------
+        [ Prent ]
+        ---------
+            - display: flex;
+            - if you want the flex system doesn't take the empty space use the : display: inline-flex;
+            - for the flex dierction, the parent class takes the : 
+                flex-direction: 
+                    row(default)
+                    row-reverse 
+                    column
+                    column-reverse
+                ;
+            - flex-wrap :
+                nowrap > allow the childs to get out of the parent class
+                wrap   > allow the chids not to get out of the prent class width
+                wrap-reverse > reverse the wrap
+
+            - flex-flow :
+                a short for the flex-direction and flex-wrap properties : 
+                flex-direction flex-warp;
+
+            - justify-content :
+                flex-start > default value
+                flex-end   > set the child in the end of the parent
+                center     > center the child in the parent
+                space-around  >  set a space between childs
+                space-between >  set a space around childs 
+                space-evenly  >  set a equal spaces
+
+            - align-items :
+                    act just for items
+                stretch  > default value
+                start    > align items on the top of the prent class
+                end      > align items on the bottom of the prent class
+                center    > align items on the center of the prent class
+
+            - align-content :
+                to use this property you have to allow the wrap in your parent class
+                act for all the content
+                stretch  > default value
+                start    > align items on the top of the prent class
+                end      > align items on the bottom of the prent class
+                center    > align items on the center of the prent class
+
+            - gap :
+                the empty spaces between childs
+
+        [ Childs ]
+        ----------
+            - align-self :
+                stretch > defaut value
+                flex-start;
+                flex-end;
+                center;
+            - order :
+                0 > default value 
+                number > you write a number to change the order of the item
+            - flex-grow :
+                controle the empty space for items
+                0 > default value
+                1 > allow the item to grow on the empty space
+            - flex-shrink :
+                1 > default value
+                0 > off the flex-shrink
+            - flex-basis :
+                accept all css units 
+            - flex :
+                shorthand for flex-grow, flex-shrink, flex-basis
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css Flex</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!-- your content here -->
+    <div class="parent">
+        <div class="child-1">
+            <p>From Chiild 1</p>
+            <p>From Chiild 1</p>
+            <p>From Chiild 1</p>
+            <p>From Chiild 1</p>
+        </div>
+        <div class="child-2">
+            <p>from Child 2</p>
+            <p>from Child 2</p>
+            <p>from Child 2</p>
+            <p>from Child 2</p>
+        </div>
+        <div class="child-3">
+            <p>from Child 3</p>
+            <p>from Child 3</p>
+            <p>from Child 3</p>
+            <p>from Child 3</p>
+        </div>
+    </div>
+</body>
+</html>

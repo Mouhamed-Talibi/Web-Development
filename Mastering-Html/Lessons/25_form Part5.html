@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Book Store</title>
+        <meta name="Description" content="This is my first page." />
+    </head>
+
+    <body>
+        <h1>Welcome To My First Page.</h1>
+
+        <form action="mouha.php" method="get">
+            <div>
+                <label>User_name</label>
+                <input type="text" required placeholder="User_name" name="user" value="Mouhamed_tali" readonly >
+            </div>
+            <br>
+            <div>
+                <label>Password</label>
+                <input 
+                type="password" 
+                required 
+                placeholder="Password" 
+                name="pass" 
+                autofocus 
+                minlength="8" 
+                maxlength="15" >
+            </div>
+            <br>
+            <div>
+                <label>Email</label>
+                <input type="email" required value="exemple@gmail.com" name="email">
+            </div>
+            <br>
+            <div>
+                <label>color</label>
+                <input type="color" name="color" required >
+            </div>
+            <br>
+            <div>
+                <label>number</label>
+                <input type="number" name="number" required min="1" max="300" step="2" >
+            </div>
+            <br>
+            <div>
+                <label>range</label>
+                <input type="range" name="Range" required min="5" max="250" step="5" value="5">
+            </div>
+            <br>
+            <input type="submit" name="Save" >
+            <input type="reset" name="Reset" >
+        </form>
+    </body>
+</html>
+
+<!-- 
+    readonly   -> attribute to make the data just for read , we can't change it , but the data can send . 
+    disabled   -> we can't send or change the data. 
+    autofocus  -> to put the cursor on the field we want to focus .
+
+    min/maxlength -> to set the length of character that the user should write . 
+-->

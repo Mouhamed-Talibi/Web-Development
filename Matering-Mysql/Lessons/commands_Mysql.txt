@@ -1,0 +1,398 @@
+                                                                                                                                             MY SQL COMMANDS :
+                                                                                        ------------------------------------------------------------------------------------------------------------------
+
+
+                                                                                                                                             -> FIRSTcommands : 
+                                                               				___________________________________
+				
+         USE database_name;                                                                       -> to use the specified database 
+         SHOW DATABASES ;                                                                     -> to show all databases you have on your pc 
+         DROP database_name;                                                                    -> to drop the specified database 
+         CREATE db_name ;                                                                         -> to create new database
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                                                                                                         -> OPERATIONS On Table :
+                                                                                                                                 _________________________________
+       
+
+CREATE TABLE IF NOT EXISTS table_name( here we write its FEATURES ) ;                                         -> to define and create new table 
+SHOW TABLES ;                                                                                                                                                      -> to show all tables you have 
+DESCRIBE table_name ;                                                                                                                                         -> to see the fields of the table
+SHOW COLUMNS FROM table_name ;                                                                                                                -> to see the fields of the table 
+SHOW TABLE STATUS;                                                                                                                                         -> to see the status of the table 
+SHOW CREATE TABLE tab_name ;                                                                                                                     -> to see the code of the table created 
+RENAME TABLE table_name TO new_name ;                                                                                                    -> to rename the table 
+       
+                 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+                                                                                                                                                  -> ALTER table :
+                                                                                                                                       __________________________
+ 
+
+ALTER TABLE table_name ENGINE = engine_name  ;                                                          -> to change the engine name 
+
+                  different engines    :   CVS ,  MRG_MYISAM ,  MEMORY ,  ANIA ,  MYISAM ,  SEQUENCE ,  INNODB ,  PERFORMANCE_SHEMA
+
+ALTER TABLE tab_name ADD col_name AFTER col_name;               
+                                                                                                                                                          -> to add new field after another field , ! if we don't write the word after automatically will                                                                                                                                                                                                                      add the field in end of the table
+
+ALTER TABLE tab_name ADD col_name FIRST;                                                                   -> to add the field as first field on the table 
+ALTER TABLE tab_name DROP col_name  ;                                                                           -> to drop or delete the column specified   
+ALTER TABLE tab_name CHANGE col_name NEW_col_name TYPE  ;                            -> to move and change the name of a field we have 
+ALTER TABLE tab_name  col_name  New_col_name  NEW_data type;                              -> to change the name or the type of a field we have
+ALTER TABLE tab_name MODIFY col_name  NEW_DATA_TYPE ;                                   -> to change the type of the the field 
+ALTER TABLE tab_name CONVERT TO CHARACTERS SET name_of_the_set ;           -> to change the type of the group of the characters  
+    
+                          ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                                                                                                           -> CONSTRAINT table :
+                                                                                                                                     ____________________________
+        
+
+                                                                                                                                        -   NOT NULL , UNIQUE
+
+CREATE TABLE tab_name (id NOT NULL UNIQUE) ;
+                                                                                                  -> to create table , NOT NULL = the values shouldn’t accept the null , UNIQUE = the value shouldn’t repeated 
+
+ALTER TABLE tab_name DROP INDEX unique_field_name ;
+                                                                                                 -> to delete the unique field in the table 
+
+                                                                                                        
+
+                                                                                                                                                - PRIMARY KEY :
+
+CREATE TABLE tab_name (id  INT NOT NULL PRIMARY KEY) ;
+                                                                                                 -> as unique , but primary key it used as the key of the table , 1 table must be as primary key , no greather than 1 field 
+                                                                                           
+
+       
+                                                                                                                                                 - FOREIGN KEY : 
+
+CREATE TABLE tab_name (
+           details , 
+           FOREIGN KEY (field_name) REFERENCES tab_name (field_name) 
+ );
+                                                                                                                     -> the foreign key it used to make a relation between 2 tables or more 
+
+
+
+                                                                                                                                                - UPDATE , DELETE : 
+
+ALTER TABLE tab_name CONSTRAINT cons_name FORIGN KEY (filed_name) REFERENCES tab_name(field) 
+ON UPDATE SET NULL , ON DELETE SET NULL   
+                                                                      ->  if we delete the data of user from the parent_table , it will be rest in the child_table 
+                                                                      -     we can alse use this method in the update and delete (NO ACTION , RESTRINCT) 
+
+                  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+                                                                                                                                                   -> STRING FUNCTIONS : 
+                                                                                                                                                ____________________________
+
+LEFT (string, length)                                                                    -> to get the characters from the left 
+SELECT * , LEFT(string , length) FROM tab_name ;
+RIGHT(string , length)                                                                 -> to get the characters from the right 
+SELECT * , RIGHT(string, length) FROM tab_name ; 
+MID(string, position , length)                                                      -> to get the characters from the middle
+SELECT * , MID(string, position , length) AS field_name FROM tab_name ;
+                                                                                                    AS -> it used to name the field with the MID function 
+
+LENGTH(string)                                                                            -> to get the number of characters on the field 
+SELECT field , LENGTH(field) FROM tab_name ; 
+
+CHAR_LENGTH(string)                                                              -> to get the number of characters    , it’s more used than LENGTH()  function  
+SELECT * , CHAR_LENGTH(field) FROM tab_name ;
+                 
+LCASE = LOWER(string)                                              -> to set all the field with lower characters 
+UPDATE tab_name SET field_name = LOWER(field_name) ;
+UCASE = UPPER(string)                                              -> to set all the field with upper characters 
+UPDATE tab_name SET field_name = UCASE(field_name) ;
+________________________________________________________________________________________________________________________________________________________________________ 
+
+  
+REPEAT(string, number o repeats)                                                                       -> the repeat the string 
+SELECT * , REPEAT(field , 2) FROM tab_name ;
+REPLACE(string, string from  , string to)                                                            -> to replace the characters with others 
+UPDATE tab_name SET field= REPLCAE(string , from , to) ;
+REVERSE(string)                                                                                                     -> to reverse the string 
+UPDATE tab_name SET field = REVERSE(field_name) ; 
+
+CONCAT(str , str , str....)                                                                                         -> to concatenate strings 
+SELECT  * , CONCAT(‘hello’ , filed_name ) FROM tab_name ;
+CONCAT_WS(separator , str , str ,str...)                                                               -> to concate with separator 
+UPDATE tab_name SET field = CONCAT_WS(‘@’ , field_name , ‘helo’ ) ;
+
+INSERT (string, position , length , new_string)                                                    -> to insert into field  , it’s different than the insert command 
+SELECT * , INSERT(field , 2, 7 , ‘medo’ ) FROM tab_name ;
+
+TRIM(leading  |trailing  |both  REMOVE_STRING  FROM string)                  -> to remove characters 
+
+SELECT * , TRIM(leading ‘me’ FROM field_name) FROM tab_name ; 
+                                                  - methods optional if not written , BOTH will used 
+                                                  - remove string if not written SPACE will removed  
+
+LTRIM(text )                                                                                                              -> to remove characters from left
+SELECT * , LTRIM(text) FROM tab_name;
+RTRIM(text)                                                                                                               -> to remove characters from right
+SELECT *, RTRIM(text) FROM tab_name;
+
+                                                               ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+                                                                                                                                                  -> NUMERIC FUNCTIONS : 
+								_____________________________
+		
+CEIL(number)                                                                          -> approach the number ASCENDING 
+UPDATE tab_name SET field = CEIL(number) ;
+FLOOR(number)                                                                     -> approach the number DESCENDING 
+SELECT  *, FLOOR(number) FROM tab_name ; 
+ROUND(number , decimal)                                                   -> approach the number with the good number exactly 
+UPDATE tab_name SET field = ROUND(number , 2 ) ;
+_______________________________________________________________________________________________________________________________________________________________________                                                                                             
+
+TRUNCATE(number , decimal)                                                                -> to get the number with the number of digits after comma 
+SELECT * , TRUNCATE(number  , 3) FROM tab_name ;
+POWER(number , powered)                                                                      -> to multiple the number with his power 
+SELECT * , POWER(number , 2) FROM tab_name ;
+MOD(number  , modules )                                                                          -> to get the modules 
+UPDATE tab_name SET field= MOD(number , 3) ;
+
+                                                         ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                                                                                                               -> DATE FUNCTIONS:
+							             __________________________
+
+
+CURTIME() , CURRENT_TIME() , CURRENT_TIME                                     -> to get the current time (h : m :s )
+UPDATE tab_name SET field = CURRENT_TIME() ;
+CURDATE() , CURRENT_DATE() , CURRENT_DATE                                   -> to get the current date (y - m - d ) 
+SELECT CURRENT_DATE() ;
+NOW() , CURRENT_TIMESTAMP()                                                                    -> to get the the current date and time ( y - m - d  h : m : s )
+SELECT NOW() ;
+ 
+  ____________________________________________________________________________________________________________________________________________ __________________________  
+
+DAYNAME(date) ;                                                                          -> to get the day name o the date 
+SELECT DAY_NAME(‘2022 - 6 -9’) ;
+DAYOFWEEK(date)                                                                      -> to get the day of the week 
+SELECT DAYOFWEEK(‘2022 - 6 -9’ ) ;
+DAYOFMONTH(date)                                                                   -> to get the date of the month 
+SELECT DAYOFMONTH(‘2022 - 6 -9’) ; 
+DAYOFYEAR(date)                                                                       -> to get the day of the year
+SELECT DAYOFYEAR(‘2022 - 6 -9’) ;    
+
+
+MONTH(date )                                                                                        -> to get the month 
+SELECT MONTH(‘2022 - 6 -9’) ; 
+MONTHNAME(date)                                                                             -> to get the name of the month 
+SELECT MONTHNAME(‘2022 - 6 -9’) ; 
+HOUR(time)                                                                                            -> to get the hour 
+SELECT HOUR(‘23:45:21’) ; 
+MINUTE(time)                                                                                        -> to get the minute 
+SELECT MINUTE(‘23:45:21)    
+
+________________________________________________________________________________________________________________________________________________________________________  
+
+DATEDIFF(date2 , date2)                                                                                   -> to compare days and return the number 
+SELECT * , DATEDIFF(curdate() , date ) FROM tab_name ; 
+LAST_DAY(date)                                                                                                  -> to get the last day of the date 
+SELECT * , LAST_DAY(date)  FROM tab_name ; 
+DATE_ADD(date , INTERVAL expressing UNITE_TIME )                          -> to add time 
+UPDATE tab SET filed = DATE_ADD(date , INTERVAL 10 DAY) ; 
+DATE_SUB(date , INTERVAL expression UNITE_TIME)                            -> to sub days 
+UPDATE tab SET field = DAY_SUB(date , INTERVAL 4 MONTH) ; 
+ 
+                                             ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+                                                                                                                                             -> COMPARAISON FUNCTIONS : 
+						                          ______________________________________
+
+
+                                                           	- BETWEEN , AND |  NOT BETWEEN , AND 
+
+BETWEEN expression AND expression 
+SELECT id FROM tab_name WHERE id BETWEEN 1 AND 4 ;
+NOT BETWEEN expression AND expression 
+SELECT id FROM tab_name WHERE id NOT BETWEEN 1 AND 3 ;
+
+
+                                                                          - IN | NOT IN 
+	
+SELECT * FROM tab_name WHERE field IN (values) 
+SELECT * FROM tab_name WHERE ield NOT IN (values) 
+
+
+
+                                                                         - LIKE | NOT LIKE :
+
+LIKE : 
+         - % : 	[ EMPTY OR COLLECTION CHARACTERS ]             -> we van use this in first , middle or end 
+         - _ :  [        ONE CHARACTER           ]                                      -> the same , we can use it in first , middle or end 
+
+                                                      -> ALSE we CAN use THEM all IN the same COMMAND 
+SELECT * FROM tab_name WHERE field LIKE '%values'  
+SELECT * FROM tab_name WHERE field LIKE '_values' 
+SELECT * FROM tab_name WHERE field LIKE  '%values_%'
+
+
+NOT LIKE :                                                                                           -> the same , it's just the opposite . ! Also we can use with it the % and _ 
+
+                                                ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                              
+                                                                                                                                               -> COMPARISON OPERATORS :
+						                              ___________________________________
+    
+
+                           = [ EQUEL ]  |    != or <> [ NOT EQUAL]  |
+                           >= [ GREATHER TAHN OR EQUAL ]  | 
+                           <= [ LESS THAN OR EQUAL ] 
+
+                                              ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                                                                                                            -> LOGICAL OPERATORS :
+						                             _____________________________
+
+AND -> &&         [ condition + condition ] 
+SELECT * FROM tab_name WHERE field condition AND field condition  ; 
+
+NOT -> !              [ negative ]
+SELECT * FROM tab_name WHERE NOT field condition ;
+
+|| -> OR             [ A condition OR B condition ]               -> one of the 2 condition must verified , if the 2 are verifies its ok 
+SELECT * FROM tab_name WHERE field condition OR field CONDITION ;
+
+XOR                    [ A condition AND not  B condition ]    -> should one condition must be verified  
+SELECT * FROM tab_name WHERE field condition XOR field condition ;
+
+                                              ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                                                                                                      -> CONTROL FLOW FUNCTIONS if :
+							  ________________________________________
+
+IF ( CONDITION , TRUE , FALSE )
+SELECT id , name , IF (number < 1 , 'HARD LUCK' , 'CONGRATS' ) FROM users;
+UPDATE users SET number = IF (number < 1 , number + 10 , number ) ;
+
+                                             ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                                                                                                           -> ARITHMETIC OPERATIONS :
+                                                                                                                                   ________________________________________
+
+
++ : ADDITION      |   - : MINUS      |    / : DEVISION   |     * : MULTIPLICATION   |   % : MODULOS 
+SELECT name , 
+                days_work , 
+                daysSalary ,
+               ( days * daySalary) AS result_money , 
+               ( days + daySAlary ) - ( 100 % 8) AS ull_result 
+FROM users;
+
+                                     ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                                                                                    -> CONTROL FLOW FUNCTIONS case : 
+                                                                                                                              _____________________________________________
+
+
+FIRST synthax of CASE :
+____________________________
+CASE                                                                                                                               SELECT  id , name ,
+              WHEN expression = value THEN result                                                     CASE
+              WHEN expression = value THEN result                                                                   WHEN number = 10 THEN "not bad" ,                                            
+              WHEN expression = value THEN result                                                                   WHEN number = 15 THEN "good" 
+               ELSE result                                                                                                                     ELSE "unkown" 
+END                                                                                                                                 END 
+
+                                                         ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SECOND synthax of CASE :
+_________________________
+CASE  expression                                                                                                            CASE number 
+                              WHEN value THEN result                                                                       WHEN 10 THEN "not bad" ,                                                                                      
+                              WHEN value THEN result                                                                       WHEN 15 THEN 15+ 15                                                                 
+                              WHEN value THEN result 
+                              ELSE result                                                                                                 ELSE  number 
+END                                                                                                                                    END                             
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                                                                                                  -> INFORMATION FUNCTIONS : 
+                                                                                                                              ___________________________________
+
+
+USER()  , SESSION_USER() , SYSTEM_USER()           ->return the name of the user and the name of the localhost 
+VERSION()                                                                          -> return the name and the version of the system management tahat you works on it 
+CHAR_SET(name of the field or the function )              -> return the engine 
+DATABASE()                                                                       -> to know the name of the database 
+CONNECTION_ID ()                                                          -> the id connector with database
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                                                                                                      -> GROUP , ORDER BY and HAVING : 
+                                                                                                                                 ________________________________________
+
+
+SELECT * FROM tab ORDER BY field_name ,                   -> ordereing the data by specific field 
+SELECT * FROM tab GROUP BY field                                -> grouping data with spesific field  
+SELECT * , SUM(field_name) FROM tab_name                   -> get the sum of values on the table 
+SELECT * , COUNT(field_name) FROM tab_name              -> count the data 
+SELECT field FROM tab_name GROUP BY field HAVING condition      -> select by the condition 
+     ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                                                                                                      -> STIMULATION OF JOIN :
+                                                                                                                                  _______________________________
+
+
+we use JOIN when we have two tables an we want to select from  , we can do what JOIN do just from select BY : 
+SELECT * FROM tab , tab2 WHERE tab1.field = tab2.field ; 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                                                                                                            -> ALIAS IN DEEP : 
+                                        				                            _______________________
+
+
+SELECT tab_name.field FROM tab1, tab2                        -> we use this command to spesifies the field from the table wat we want to select from if we have 2 tables have the same field 
+SELECT 
+              u.user_id  ,
+              u.user_name ,
+              b.barber_name 
+FROM 
+            tab_name ;                                                                  ->  u or b THEY ARE alias to WIN TIME and HARD work bad
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                                                                                                         -> INNER JOIN : 
+     							     _______________________
+
+synthax : 
+                                            SELECT 
+                   			table.col_name  
+		        FROM 
+				table1
+		        INNER JOIN 
+				tab2 
+		        ON                                                                     -> we can replace ON by USING  and write the FIELD like this (field_name) 
+				tabl1.col = tab2.col   
+                                                                    ______________________________________________________________________________________________________
+ 
+exemple : 
+---------------
+
+SELECT 
+                 s.id , 
+                 c.course_id 
+                 c.course_name 
+FROM 
+                students s 
+INNER  
+               courses c 
+ON 
+               c.course_id = s.course_id 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                                                                                                             - LEFT , RIGHT JOIN : 
+							           _________________________
+
+
+their synthax is like the INNER JOIN , just we need o replace INNER by LEFT or RIGHT 
+
+ 
+ 

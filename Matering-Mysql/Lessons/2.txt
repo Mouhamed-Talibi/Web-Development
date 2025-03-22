@@ -1,0 +1,114 @@
+					LEARNING MYSQL FROM w3school  : 
+					_____________________________________
+
+UPADTE statement : 
+----------------------------
+
+ -  the UPDATE is used to modify the existing records in a table . 
+
+	UPDATE  tab_name  SET  col1 = value1 , col2 = value2  WHERE  condition; 
+exemple : UPDATE  users  SET  age = 19  WHERE  id > 15;
+
+
+DELETE statement :
+------------------------------
+
+- The DELETE is used to delete the exisitng records from the table . 
+	
+	DELETE FROM tab_name WHERE condition AND condition ; 
+exemple : DELETE FROM users WHERE age < 10 AND note < 12 ;
+
+
+LIMIT clause : 
+--------------------
+
+- The LIMIT CLAUSE is used to specify the number of records to return 
+
+	SELECT col_name FROM tab_name WHERE consition LIMIT number ;
+exemple : SELECT name FROM users WHERE age > 10 LIMIT 20;
+
+________________________________________________________________________________________________________________________________________________________________________
+
+MIN() function :
+----------------------
+
+- The MIN() function returns the smallest value of the selected column 
+	
+	SELECT MIN(col_name) FROM tab_name WHERE condition ; 
+exemple : SELECT MIN(age) FROM users WHERE id > 2 ;
+
+
+MAX() function :
+-----------------------
+
+- The MIN() function returns the smallest value of the selected column
+
+	SELECT MAX(col_name) FROM tab_name WHERE condition ;
+exemple : SELECT MAX(age) FROM users WHERE country = "morocco";
+
+
+COUNT() function : 
+---------------------------
+
+- The COUNT() function returns the number of rows that matches a specified criterion. 
+
+	SELECT COUNT(col_name) FROM tab_name ;
+exemple : SELECT COUNT
+
+
+AVG() function : 
+----------------------
+
+- The AVG() function returns the average value of a numeric column.
+
+	SELECT AVG(col_name) FROM tab_name WHERE condition ;
+exemple : SELECT AVG(age) FROM users WHEER id >= 2 ;
+
+
+SUM() function :
+-----------------------
+
+- The SUM() function returns the total sum of a numeric column. 
+
+	SELECT SUM(col_name) FROM tab_name WHERE consition ; 
+exemple : SELECT SUM(note) FROM users WHERE country="morocco" ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

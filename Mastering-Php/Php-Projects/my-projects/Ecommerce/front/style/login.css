@@ -1,0 +1,109 @@
+/* login.css */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #2c2c2c;
+    width: 450px;
+    height: 650px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.present {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.present h3 {
+    font-weight: 600;
+    color: #f0f0f0;
+}
+
+.info img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background-color: #1a1a1a;
+    color: white;
+}
+
+input::placeholder {
+    color: #b3b3b3;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #f0f0f0;
+    color: black;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #d1d1d1;
+}
+
+p {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #b3b3b3;
+    text-align: center;
+}
+
+a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-weight: 500;
+    text-align: center;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.info #sign{
+    color: aqua;
+    display: flex;
+    margin: auto;
+    margin-left: 80px;
+}

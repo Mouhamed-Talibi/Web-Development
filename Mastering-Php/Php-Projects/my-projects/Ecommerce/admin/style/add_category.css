@@ -1,0 +1,102 @@
+/* General body settings */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Centering the form container */
+.container {
+    max-width: 800px;
+    margin: 100px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Styling the title */
+h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Flexbox layout for form and image */
+.data-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-section {
+    margin-bottom: 20px;
+}
+
+.image-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Form section styling */
+.form-section {
+    width: 100%;
+}
+
+.form-section label {
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.form-section input[type="text"],
+.form-section textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-section textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* Button styling */
+button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: hsl(204, 84%, 43%);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .data-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .form-section {
+        width: 60%;
+    }
+
+    .image-section {
+        width: 35%;
+    }
+}

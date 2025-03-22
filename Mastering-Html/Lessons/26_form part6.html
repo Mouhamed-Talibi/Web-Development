@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Book Store</title>
+        <meta name="Description" content="This is my first page." />
+    </head>
+
+    <body>
+        <h1>Welcome To My First Page.</h1>
+
+        <form action="mouha.php" method="get">
+            <div>
+                <label>User_name</label>
+                <input type="text" required placeholder="User_name" name="user" value="Mouhamed_tali" readonly >
+            </div>
+            <br>
+            <div>
+                <label>Password</label>
+                <input 
+                type="password" 
+                required placeholder="Password" 
+                name="pass" 
+                autofocus 
+                minlength="8" 
+                maxlength="15" >
+            </div>
+            <br>
+            <div>
+                <label>Email</label>
+                <input type="email" required value="exemple@gmail.com" name="email">
+            </div>
+            <br>
+            <div>
+                <label>color</label>
+                <input type="color" name="color" required >
+            </div>
+            <br>
+            <div>
+                <label>number</label>
+                <input type="number" name="number" required min="1" max="300" step="2" >
+            </div>
+            <br>
+            <div>
+                <label>range</label>
+                <input type="range" name="Range" required min="5" max="250" step="5" value="5">
+            </div>
+            <br>
+            <hr>
+            <div>
+                <input id="win" type="radio" name="os" value="Windous" checked>
+                <label for="win">Windous</label>
+            </div>
+            <div>
+                <input id="ln" type="radio" name="os" value="Linux">
+                <label for="ln">Linux</label>
+            </div>
+            <div>
+                <input id="mac" type="radio" name="os" value="Mac">
+                <label for="mac">Mac</label>
+            </div>
+            <br>
+            <hr>
+            <div>
+                <input id="py" type="checkbox" name="lp" value="python" >
+                <label for="py">Python</label>
+            </div>
+            <div>
+                <input id="css" type="checkbox" name="lp" value="Css">
+                <label for="css">Css</label>
+            </div>
+            <div>
+                <input id="js" type="checkbox" name="lp" value="javascript">
+                <label for="js">Python</label>
+            </div>
+
+            <input type="submit" name="Save" >
+            <input type="reset" name="Reset" >
+        </form>
+    </body>
+</html>
+
+<!--  
+    radio   -> choose from a list of choices 1 choice.
+            - the label of the radio must be after the filed .
+
+    checked -> attribute to put the choice for the data you select . 
+    - To relate the label with the input we use the id(identifier)
+
+    checkbox -> to choose multiple choices from list of choices or to choose nothing . 
+-->

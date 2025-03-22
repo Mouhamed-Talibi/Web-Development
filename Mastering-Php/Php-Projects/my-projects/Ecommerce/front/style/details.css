@@ -1,0 +1,164 @@
+/* General Styles */
+body {
+    background-color: black;
+    color: white;
+    /* font-family: 'Ubuntu', sans-serif; */
+    margin: 0;
+}
+
+/* Navbar styles */
+nav {
+    background-color: #444;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
+}
+
+nav ul p {
+    margin-right: 20px;
+    font-size: 18px;
+    color: white;
+}
+
+nav a{
+    margin-left: 250px;
+    display: flex;
+}
+
+#home {
+    text-decoration: none;
+    padding: 8px 15px;
+    color: white;
+    border-radius: 5px;
+    background-color: silver;
+    margin-right: 15px;
+}
+
+#orders {
+    background-color: lightgreen;
+    color: black;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+#orders:hover {
+    background-color: #66CDAA;
+    color: white;
+}
+
+.logout-btn {
+    text-decoration: none;
+    padding: 8px 15px;
+    color: white;
+    background-color: red;
+    border-radius: 5px;
+}
+
+.logout-btn:hover {
+    background-color: darkred;
+    color: white;
+}
+
+/* Main layout */
+.container {
+    padding: 30px;
+    margin-top: 10px;
+    display: flex;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+h4 {
+    font-size: 28px;
+    color: white;
+    float: center;
+}
+
+/* Image on the left */
+.product-image {
+    margin-top: 40px;
+    float: left;
+}
+
+.product-image img {
+    width: 350px;
+    height: 300px;
+    object-fit: cover;
+    border: 2px solid white;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+/* Details on the right */
+.details {
+    margin-top: 100px;
+    float: right;
+    margin-left: 90px;
+    font-size: 18px;
+}
+
+.details strong{
+    color: #90EE90;
+}
+
+.details p {
+    margin-bottom: 10px;
+}
+
+.details button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.details button:hover {
+    background-color: darkblue;
+}
+
+/* Additional links */
+.access a{
+    margin: auto;
+    text-decoration: none;
+    color: rgb(99, 224, 166);
+    margin-right: 20px;
+    font-size: 16px;
+    margin-left: 100px;
+}
+
+.alert {
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.alert-info {
+    background-color: #d9edf7; /* Light blue background */
+    color: #31708f; /* Darker blue text */
+    border: 1px solid #bce8f1; /* Blue border */
+    margin-left: 300px;
+}
+
+.alert-danger {
+    background-color: #f2dede; /* Light red background */
+    color: #a94442; /* Darker red text */
+    border: 1px solid #ebccd1; /* Red border */
+    width: 700px;
+    height: 50px;
+}

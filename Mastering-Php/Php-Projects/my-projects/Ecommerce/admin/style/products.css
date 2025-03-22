@@ -1,0 +1,90 @@
+body {
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container {
+    margin: 40px auto;
+    text-align: center;
+}
+
+.container h4 {
+    font-weight: 600;
+    color: #3b3b98;
+    margin-bottom: 20px;
+}
+
+.container a {
+    text-decoration: none;
+    color: white;
+    background-color: #28a745;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.container a:hover {
+    background-color: #218838;
+}
+
+#tbl {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px grey;
+}
+
+#tbl th, #tbl td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+#tbl th {
+    background-color: #26cec5;
+    color: white;
+}
+
+#tbl tbody tr:hover {
+    background-color: #219ca5;
+}
+
+#tbl tfoot td {
+    font-weight: bold;
+    color: #3b3b98;
+    padding-top: 15px;
+}
+
+#tbl tbody td a {
+    text-decoration: none;
+    color: #e3e7eb;
+    margin-right: 10px;
+}
+
+#modif {
+    background-color: aqua;
+    color: black;
+    border: none;
+}
+
+#modif:hover {
+    background-color: #87e8e8;
+    color: #333;
+}
+
+#del {
+    background-color: red;
+    color: white;
+    border: none;
+}
+
+#del:hover {
+    background-color: #cc0000;
+    color: #f8f9fa;
+}
+
+tfoot td {
+    text-align: right;
+    padding: 10px;
+}

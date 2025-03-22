@@ -1,0 +1,40 @@
+                                                                                                                                                        learn HTML 
+                                                                                                                                                   ________________
+
+what is HTML ? : 
+--------------------------
+
+    ->  it stands for " HYPERTEXT MARKUP LANGUAGE  " 
+    ->  it is for BUILD the WEB 
+    ->  SHIP + BUILDING + SKELETON 
+    ->  it's for build the STRUCTURE of the web 
+
+
+WHY i need to learn HTML ? :
+--------------------------------------------
+
+   . Front end devloper 
+   . Back end devloper 
+   . Mobile devloper 
+   . Reports 
+
+
+WHAT i need to learn HTML ? : 
+-----------------------------------------------
+
+   -  Text Editor [ visual studio  code or Atom ] 
+   -  Internet Browser [ googe | firefox devloper Edition | Microsoft Edge ] 
+   -  Windows and Internet Knowledge 
+   -  Always Search + Focus 
+   -  Have a traget [ My target is To Be a Back end devloper ] 
+   -  Start any idea 
+   -  ALWAYS SEARCH before asking 
+
+
+HOW to study ? :
+-------------------------
+
+  - Watch vedio with focus .
+  - Do the assignements on The [ https://elzero.org/category/assignements/html-assignements  ]
+ 
+

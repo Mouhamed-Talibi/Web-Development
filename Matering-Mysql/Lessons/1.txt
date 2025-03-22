@@ -1,0 +1,118 @@
+					WHAT IS SQL ? 
+
+	- SQL is the standar  language for dealing with Relational Databases.
+	- SQL is used to insert, search, update, and delete database records. 
+
+
+			- Some of The Most Important SQL Commands
+SELECT - 	extracts data from a database
+UPDATE -	updates data in a database
+DELETE - 	deletes data from a database
+INSERT INTO - 	inserts new data into a database
+CREATE DATABASE -	creates a new database
+ALTER DATABASE - 	modifies a database
+CREATE TABLE -		creates a new table
+ALTER TABLE -		modifies a table
+DROP TABLE - 		deletes a table
+CREATE INDEX - 		creates an index (search key)
+DROP INDEX - 		deletes an index
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+			- The synathax of the most important SQL commands : 
+			_________________________________________________
+
+
+SELECT synathax :
+---------------------------
+	SELECT column1, column2, ...
+	FROM table_name;
+exemple : SELECT users , ages FROM students ; 
+
+- to selec all the columns we use the * 
+exemple : SELECT * FROM  students ;
+
+- The SELECT DISTINCT statement is used to return only distinct (different) values. 
+exemple : SELECT DISTINCT name , age  from students ; 
+
+- SELECT COUNT(columm_name) FROM  tab_name ;
+     -> to count the number of the data in the column 
+exemple : SELECT COUNT(DISTINCT(country)) FROM students;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+WHERE synthax :
+------------------------ 
+
+- Note: The WHERE clause is not only used in SELECT statements, it is also used in UPDATE, DELETE, etc.!
+
+	SELECT col_name FROM tab_name WHERE condition ; 
+exemple : SELECT age FROM users WHERE age > 12; 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+AND synthax : 
+--------------------
+
+	SELECT col_name FROM tab_name WHERE condition AND condition AND condition.... ;
+exemple : SELECT name FROM users WHERE age > 10 AND note >= 12 ;
+
+
+OR synthax :
+------------------ 
+
+	SELECT col_name FROM tab_name WHERE conditions OR condition OR consition ... ;
+exemple : SELECT id , name FROM users WHEER id > 4 OR name = "mouhamed" ;
+
+
+NOT synthax : 
+--------------------
+
+	SELECT col_name FROM tab_name WHERE NOT  condition ;
+exemple : SELECT name , age FROM users WHERE NOT age > 10 ;
+
+
+COMBINING AND - OR - NOT : 
+-----------------------------------------------
+exemple : SELECT * FROM users WHERE (id > 15) AND (age >= 10 OR note > 10.50 ;)
+exemple : SELECT * FROM users WHEER NOT( city = "ouled teima") AND NOT (date = "21-5-2021") ;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ORDER BY keyword : 
+-------------------------------
+
+	SELECT col_name WHERE condition AND condition ORDER BY col_name ASC |DESC ;    	ASC -> ASCENDING order 	DESC -> DESCENDING order 
+exemple : SELECT name , age FROM users WHERE age > 12 ORDER BY name DESC; 
+exemple : SELECT id , name, age FROM users WHERE id > 2 AND OR age >= 10 ORDER BY id ASC;
+exemple : SELECT * FROM Customers ORDER BY Country, CustomerName; 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO statement : 
+------------------------------------
+
+ - it is used to insert new records to the table .
+
+	INSERT INTO tab_name(col_name , col_name .. ) VALUES (value1 , value 2 ...);
+exemple : INSERT INTO users(name , age , note ) VALUES ("mouhamed", 18 , 12.56);
+
+- If you are adding values for all the columns of the table, you do not need to specify the column names in the SQL query
+
+	INSERT INTO tab_name VALUES (value1 , value2 ...);
+exemple : INSERT INTO users VALUES ("mouhamed" , 19 , 15);
+
+
+test for NULL VALUES :
+----------------------------------
+
+IS NULL synthax : 
+________________
+
+	SELECT col_name FROM tab_name WHERE col_name IS NULL ; 
+exemple : SELECT age FROM users WHERE name IS NULL ;
+
+IS NOT NULL synthax : 
+_____________________
+
+	SELECT col_name FROM tab_name WHERE col_name IS NOT NULL ;
+exemple : SELECT age FROM users WHERE id IS NOT NULL ;

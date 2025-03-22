@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Speed Test</title>
+        <meta name="Description" content="This Is The Speed Test website .">
+    </head>
+
+    <body>
+        <h1>Welcome To Speed Test Website .</h1>
+
+        <form action="mouha.php" method="get">
+            <div>
+                <label for="us">User_name</label>
+                <input 
+                id="us"
+                type="text" 
+                name="Username" 
+                required 
+                placeholder="Write Your User_name"
+                minlength="5"
+                maxlength="25"
+                autofocus
+                >
+            </div>
+            <br>
+            <div>
+                <label for="ps">Password</label>
+                <input 
+                id="ps"
+                type="password" 
+                name="Pass" 
+                required 
+                placeholder="Write strong Password"
+                minlength="5"
+                maxlength="25"
+                >
+            </div>
+            <br>
+            <div>
+                <label for="em">Email</label>
+                <input 
+                id="em"
+                type="email" 
+                name="mail" 
+                required 
+                value="exemple@gmail.com"
+                minlength="5"
+                maxlength="25"
+                >
+            </div>
+            <br>
+            <div>
+                <label for="n">Number</label>
+                <input 
+                id="n"
+                type="number" 
+                name="num" 
+                required 
+                min="10"
+                max="500"
+                >
+            </div>
+            <br>
+            <div>
+                <label for="bk">Choose Your Book.</label>
+                <select name="books" id="bk">
+                    <optgroup label="Action books">
+                        <option value="1">atomic habits</option>
+                        <option value="2">the gentel man</option>
+                        <option value="3" selected>stop overthinking </option>
+                    </optgroup>
+                    <optgroup label="Romantic books">
+                        <option value="4">book4</option>
+                        <option value="5">book5</option>
+                        <option value="6">book6</option>
+                    </optgroup>
+                </select>
+            </div>
+            <br>
+            <textarea 
+                name="Subject" 
+                cols="40" 
+                rows="10" 
+                placeholder="Write your Subject Here ."
+            >
+            </textarea>
+            <br>
+            <input type="submit" name="Save">
+            <br>
+            <input type="reset" name="Reset">
+        </form>
+    </body>
+</html>
+
+<!--  
+    select -> to select from multiple choices . 
+            option   - inside the select , only the value send not the text . 
+            optgroup - we put inside it the multiple options we have . 
+            multiple - the user can select multiple choices .
+            selected - mark as selected .
+
+    textarea -> place to write sentences and words.
+-->  

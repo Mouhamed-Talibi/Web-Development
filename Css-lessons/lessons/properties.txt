@@ -1,0 +1,385 @@
+background-color :
+    set a bg color for the element 
+
+background-image :
+    background-image : url("imagePath");
+    set a bg image for the element
+
+background-repeat :
+    custom the background repeat 
+
+background-attachement :
+    custom the attachement of bg-image 
+
+background-position :
+    set the position of the background 
+
+background-size :
+    custom the size of the background
+
+padding : 
+    top right bottom left 
+    add space inside the element 
+        padding-top;
+        padding-righ;
+        padding-bottom;
+        padding-left;
+
+margin :
+    top right bottom left 
+    add spaces outside the element
+    accept negative values 
+    it is good to use the margin with the percent ( % )
+        margin-top;
+        margin-right;
+        margin-bottom;
+        margin-left;
+
+border :
+    top right bottom left 
+    add a border to the element
+    border-top;
+    border-right;
+    border-bottom;
+    border-left;
+    border-width;
+    border-color;
+
+outline :
+    like the border 
+    the difference is that the border takes the element space but the outline don't 
+    
+display :
+    transform the block element to inline element and the opposite is true 
+
+    - Block : 
+        take full width if no width 
+        add break line 
+        respect Padding, Marign, width, height and All 
+
+    - Inline :
+        don't add break line 
+        don't respect the width and height 
+        respect padding and margin [ just left and right ]
+        Allow elements before and after it  
+
+    - Inline-Block : 
+        Allow elements before and after it
+        respect Padding, Marign, width, height and All
+
+    - none :
+        the element not present [ hide the element ] 
+
+visibity :
+    - visible : 
+        the element appear in the page 
+        save the space of the element in the work flow even it's unvisible 
+
+Groupping mutltiple selectors : 
+    .container,
+    .navbar,
+    .about{
+        // write properties here 
+    }
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Nesting :   
+    access ana element throught the parent 
+    div p{
+        // code here 
+    }
+
+width & height :
+    min-width : the minimum width 
+    max-width : the maximum width 
+    width : fit-content; -> the width will fit the content inside the element 
+
+overflow : 
+    scroll : allow you to follow the content to see it 
+    auto : the best for the overflow 
+
+text-shadow : 
+    make a shadow for the element 
+    synthax : 
+        horizontal-shadow vertical-shdow blur color 
+    
+text-align :
+    - center : center the text 
+    - right : position the text in the right
+    - left : position the text in the left  
+
+direction : 
+    - ltr : left to right
+    - rlt : right to left 
+
+vertical-align :
+    - top 
+    - middle 
+    - bottom 
+
+text-decoration : 
+    decorate the text 
+    - line-through
+    - underline 
+    - none 
+    - overline 
+
+text-transform :
+    - capitalize
+    - uppercase
+    - lowercase
+
+letter-spacing : 
+    the space between letters 
+
+text-indent : 
+    the indentation of the text 
+
+line-height :
+    the height of the line 
+
+word-spacing : 
+    the space between words 
+
+word-break : 
+    when we want to break a word 
+
+text-overflow : 
+    the way we want the long text to look
+
+font-family : 
+    the font of the website 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+property-name : inherit 
+    this will inerit the value of the same property, and it helps us to avoid rewriting the same value again 
+    exmaple : 
+        div{
+            border: 1px solid blue;
+            padding: 10px;
+        }
+
+        p{
+            border-color: inherit
+        }
+
+[ Font size & Css Units ]
+-------------------------
+Units :
+    px 
+    em         -> time
+    percentage
+    rem        -> root time 
+    vw         -> viewport width 
+
+Read :
+    vmin     vh
+
+font-style : 
+    change the style of the font 
+
+font-weight : 
+    choose the weight of the font 
+
+[ Float & Clear ]
+-----------------
+float : 
+    make the elments float on the page or the div 
+    ! it is necessary to use the overflow : hidden with the float to make sure that the design is good 
+clear : 
+    left  |  right  | both 
+
+[ Css calculation ]
+-------------------
+div{
+    padding-top: 10px;
+    background-color: grey;
+    color: blue;
+    width: calc(88% / 5);
+}
+/*
+    Content width is : 100%
+    6 spaces 2% * 6 = 12% from wontent width 
+    88% availabe from content width 
+    5 elements : The width is : 88% / 5
+*/
+/*
+    Content width is : 100%
+    6 spaces 15px* 6 = 90px from wontent width 
+    100% - 90px availabe from content width 
+    5 elements : The width is : (100% - 90px) / 5
+*/
+
+[ Opacity ]
+-----------
+opacity: 
+    the 1 means 100%
+    the value : 0.1 | 0.2 | 0.3 ... to 1
+
+[ Position ]
+------------
+position: relative;
+    this means we can move the specific element 
+
+position: absolute;
+    the elment goes outside the workflow 
+
+position: fixed;
+    the element don't scroll with the page, it stay with you 
+
+position: sticky;
+    when the user arrive to a point of scroll, the element will be fixed
+    div{
+        position: sticky;
+        top: 0;
+    }
+
+! when we have a div and we want to change the position of an element inside it , we have to set the position 
+    of the div to relative
+
+z-index :
+    value;
+    the value must begreather than other elemnts's value    
+    this property doesn't work without the position property 
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+[ Lists styling ]
+-----------------
+list-style-type: 
+    change the style type of the list   
+
+list-style-position:
+    change the position of the point in the lists 
+
+list-style-image:
+    add an image to the list 
+
+list-style:
+    list-style-type   list-style-position   list-style-image
+    This is the shorthand for list-styling 
+
+[ table styling ]
+-----------------
+border-spacing:
+    set the space betweenthe border and the table content 
+
+padding:
+    // ..value
+
+text-align: 
+    // ..value
+
+background-color:
+    // ..value
+
+[ Pseudo classes ]
+------------------
+element:hover{
+    // properties here 
+}
+
+element:checked{
+    // properties here 
+}
+
+element:visited{
+    // properties here 
+}
+
+element:empty{
+    // properties here 
+}
+
+element:focus{
+    // properties here 
+}
+
+[ Pseudo Elements ] 
+-------------------
+element::first-letter{
+    // code here ...
+}
+
+element::first-line{
+    // code here ...
+}
+
+::selection{
+    // code here
+    * the selection is a pseudo element to allow you change the element properties when the user select it 
+}
+
+element::before{
+    content: "";
+    * the content property must be present in the code, because without it the style won't work 
+    // code here
+}
+
+element::after{
+    content: "";
+    * the content property must be present in the code, because without it the style won't work 
+    // code here
+}
+
+counter-increment :
+    this property is for counting elements 
+    you can give it the name you want : counter-increment: usersCounter 
+
+element{
+    content: counter('usersCounter');
+}
+
+[ vendor Prefixes ]
+-------------------
+/*
+    -webkit- => chrom, new versio of opera, safari
+    -moz-    => firefox
+    -ms-     => ie, edge
+    -o-      => old versio of opera
+*/
+
+we use the vendor prefixes like this : 
+    vendor-prefixe-cssProperty: value;
+    -webkit-border-radius: 10px 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+border-radius: 
+    it is for styling the radius of a border 
+
+box-shadow:
+    horizontal-shadow   vertical-shadow   Blur   spread  color  inset-value     
+
+box-sizing:
+    to include the width with the padding, margin, and border user this value : border-box;
+
+[ Transition ]
+--------------
+transition-duration: 
+    // time here in second or ms 
+
+transition-delay:
+    * the delay is the time you set for the element to do an animation 
+    // time here in s or ms 
+
+transition-property:
+    // the default value is all;
+    * we can write the name of the properties we want to do the animation 
+    example: 
+        transition-property: margin-top, margin-bottom, width;
+
+short-hand of the transition: 
+    transition: property   duration   delay   timing-function 
+
+[ css varibales ]
+-----------------
+:root{
+    // varibale names here 
+    * varibales in css start with | --varName 
+}
+
+calling vars :
+    property: var(varName, fullback-Value)
+        color: var(--mainColor, black);

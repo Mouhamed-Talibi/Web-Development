@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Form Part3</title> 
+        <meta name="description" content="This Is My First Page " />
+    </head>
+
+    <body>
+        <h1>welcome tO mY page .</h1>
+        <form action="mouhamed.php" method="get">
+            <div>
+                <label>Email</label>
+                <input type="email" placeholder="Write Email" value="exemple@gmail.com" name="mail">
+            </div>
+            <br>
+            <div>
+                <label >User_name</label>
+                <input type="text" required placeholder="User_name" name="user">
+            </div>
+            <br>
+            <div>
+                <label>Password</label>
+                <input type="password" required placeholder="Strong Password" name="pass">
+            </div>
+            <br>
+            <div>
+                <label>Subject</label>
+                <input type="text" required placeholder="About ?" name="subj">
+            </div>
+            <br>
+            <label>Submit</label>
+            <input type="submit" value="Save">
+        </form>
+    </body>
+</html>
+
+<!-- 
+    action -> used to communicate with the back-end , and the place where we want to send the data [send data to server]
+
+    get    -> is a method to send the data to server , it make the data show in the path .
+            like this : "file:///C:/Users/PC/Documents/Back%20End%20Devloper%20Lessons/6_Leraning%20Html/mouhamed.php?mail=exemple%40gmail.com&user=mouhamed&pass=duser%C3%A8sgy&subj=Immigration"
+
+    post   -> is a method to send data to the server , it connot make the data show in the path .
+            like this : "file:///C:/Users/PC/Documents/Back%20End%20Devloper%20Lessons/6_Leraning%20Html/mouhamed.php"
+-->

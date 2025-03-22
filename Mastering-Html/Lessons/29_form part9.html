@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Books</title>
+        <meta name="Description" content="This is my first page .">
+    </head>
+
+    <body>
+        <h1>Welcome To My <mark>First_Page.</mark></h1>
+        <form action="mouha.php" method="post" novalidate target="_blank">
+            <div>
+                <label for="u">User_name</label>
+                <input 
+                id="u" 
+                type="text" 
+                name="user" 
+                required 
+                placeholder="You User_name" 
+                autofocus
+                >
+            </div>
+            <br>
+            <div>
+                <label>Subject</label>
+                <input type="text">
+            </div>
+            <br>
+            <p><b>Here You Can Search For The Programming Languages </b>:</p>
+            <br>
+            <input list="Programming" name="prog">
+            <datalist id="Programming">
+                <option value="Python">
+                <option value="css">
+                <option value="javascipt">
+                <option value="Scala">
+            </datalist>
+        </form>
+    </body>
+</html>
+
+<!--   
+    novalidate -> to no-validate the field (don't show the message to user when he missing write data.)
+    datalist   -> where we write the data as list and we can search for the word that we need in this field .
+                    option where we write the text in the value .
+-->

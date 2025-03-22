@@ -1,0 +1,93 @@
+body {
+    font-family: 'Ubuntu', sans-serif; 
+    background-color: rgb(252, 254, 255);
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    margin-top: 30px;
+    font-size: 28px;
+    text-align: center;
+    font-weight: bold;
+}
+
+h5 {
+    margin-left: 10%;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+h5 a {
+    text-decoration: none;
+    color: rgb(42, 42, 109);
+    background-color: #fff;
+    padding: 6px 12px;
+    border: 2px solid aqua;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+h5 a:hover {
+    background-color: rgb(41, 202, 207);
+    color: white;
+}
+
+table.tbl {
+    width: 84%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+table.tbl th, 
+table.tbl td {
+    text-align: center;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+table.tbl th {
+    background-color: rgb(0, 140, 255);
+    color: white;
+    font-weight: bold;
+}
+
+table.tbl td {
+    font-size: 16px;
+}
+
+#update, #delete {
+    text-decoration: none;
+    color: white;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0 5px;
+}
+
+#update {
+    background-color: rgb(27, 148, 185);
+    border: 2px solid blue;
+}
+
+#update:hover {
+    background-color: lightblue;
+}
+
+#delete {
+    background-color: red;
+    border: 2px solid red;
+}
+
+#delete:hover {
+    background-color: darkred;
+}
+
+
+tfoot td {
+    background-color: rgb(161, 158, 158);
+    font-weight: bold;
+    color: black;
+}

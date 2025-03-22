@@ -1,0 +1,383 @@
+[ MARGINS & PADDINGS CLASSES ]
+ -----------------------------
+
+    m-number  → Adds margin on all sides of the element.
+
+    mt-number → Adds margin-top to the element.
+
+    mb-number → Adds margin-bottom to the element.
+
+    ms-number → Adds margin-start (left in LTR, right in RTL) to the element.
+
+    me-number → Adds margin-end (right in LTR, left in RTL) to the element.
+
+    mx-number → Adds margin to the left and right (horizontal).
+
+    my-number → Adds margin to the top and bottom (vertical).
+
+    p-number  → Adds padding on all sides of the element.
+
+    pt-number → Adds padding-top to the element.
+
+    pb-number → Adds padding-bottom to the element.
+
+    ps-number → Adds padding-start (left in LTR, right in RTL) to the element.
+
+    pe-number → Adds padding-end (right in LTR, left in RTL) to the element.
+
+    px-number → Adds padding to the left and right (horizontal).
+
+    py-number → Adds padding to the top and bottom (vertical).
+
+    ! number can be 0, 1, 2, 3, 4, 5, auto, where 5 is the largest spacing.
+
+
+
+[ BUTTON CLASSES ]
+ -----------------
+
+    btn             → Base class for all buttons.
+
+    btn-primary     → Blue primary button.
+
+    btn-secondary   → Grey secondary button.
+
+    btn-success     → Green success button.
+
+    btn-danger      → Red danger button.
+
+    btn-warning     → Yellow warning button.
+
+    btn-info        → Light blue info button.
+
+    btn-light       → Light-colored button.
+
+    btn-dark        → Dark-colored button.
+
+    btn-link        → Removes button styling and makes it look like a link.
+
+    btn-lg          → Large button.
+
+    btn-sm          → Small button.
+
+    btn-outline-primary    → Transparent button with blue border.
+
+    btn-block              → Makes button full width (use w-100 instead in Bootstrap 5).
+
+
+[ DISPLAY & VISIBILITY CLASSES ]
+ -------------------------------
+    
+    d-none          → Hides an element.
+
+    d-inline        → Makes an element inline.
+
+    d-block         → Makes an element a block element.
+
+    d-inline-block  → Makes an element inline-block.
+
+    d-flex          → Makes an element a flex container.
+
+    d-grid          → Makes an element a CSS grid container.
+
+    d-inline-flex   → Makes an inline flex container.
+
+
+
+[ TEXT & ALIGEMENT CLASSES ]
+ ---------------------------
+
+    text-start               → Aligns text to the left.
+
+    text-center              → Centers text.
+
+    text-end                 → Aligns text to the right.
+
+    text-muted               → Light gray text.
+
+    fw-bold                  → Bold text.
+
+    fw-normal                → Normal-weight text.
+
+    fw-light                 → Light-weight text.
+
+    text-uppercase           → Uppercase text.
+
+    text-lowercase           → Lowercase text.
+
+    text-decoration-none     → Removes text decoration.
+
+
+
+[ BACKGROUND & BORDER CLASSES ]
+ ------------------------------
+
+    bg-primary             → Blue background.
+
+    bg-secondary           → Gray background.
+
+    bg-success             → Green background.
+
+    bg-danger              → Red background.
+
+    bg-warning             → Yellow background.
+
+    bg-info                → Light blue background.
+
+    bg-light               → Light background.
+
+    bg-dark                → Dark background.
+
+    border                 → Adds a border to an element.
+
+    border-0               → Removes border.
+
+    border-top             → Adds a top border.
+
+    border-bottom          → Adds a bottom border.
+
+    border-start           → Adds a left border.
+
+    border-end             → Adds a right border.
+
+    rounded                → Adds border-radius to an element.
+
+    rounded-circle         → Makes an element circular.
+
+    rounded-pill           → Makes an element pill-shaped.
+
+
+
+[ POSITIONING & WIDTH/HEIGHT CLASSES ]
+ -------------------------------------
+
+    position-static            → Default position.
+
+    position-relative          → Relative positioning.
+
+    position-absolute          → Absolute positioning.
+
+    position-fixed             → Fixed positioning.
+
+    position-sticky            → Sticky positioning.
+
+    w-25         → 25% width.
+
+    w-50         → 50% width.
+
+    w-75         → 75% width.
+
+    w-100        → Full width.
+
+    h-25         → 25% height.
+
+    h-50         → 50% height.
+
+    h-75         → 75% height.
+
+    h-100        → Full height.
+
+
+
+[ VISIBILITY & OVERFLOW CLASSES ]
+ --------------------------------
+
+    overflow-auto        → Enables scrolling when content overflows.
+
+    overflow-hidden      → Hides overflowing content.
+
+    overflow-visible     → Allows overflowing content to be visible.
+
+    overflow-scroll      → Adds a scrollbar always.
+
+    visible              → Makes an element visible.
+
+    invisible            → Makes an element invisible (still takes up space).
+
+
+
+[ FLEX SYSTEM CLASSES ]
+ ----------------------
+    
+    d-flex                      → Makes an element a flex container.
+
+    d-inline-flex               → Makes an inline flex container.
+
+    flex-row                    → Aligns flex items in a row (default).
+
+    flex-column                 → Aligns flex items in a column.
+
+    flex-wrap                   → Allows flex items to wrap.
+
+    flex-nowrap                 → Prevents wrapping.
+
+    justify-content-start       → Aligns items to the start (left).
+
+    justify-content-end         → Aligns items to the end (right).
+
+    justify-content-center      → Centers items horizontally.
+
+    justify-content-between     → Adds space between items.
+
+    justify-content-around      → Distributes space evenly with some space around items.
+
+    justify-content-evenly      → Equal spacing between items.
+
+    align-items-start           → Aligns items to the top.
+
+    align-items-end             → Aligns items to the bottom.
+
+    align-items-center          → Centers items vertically.
+
+    align-items-baseline        → Aligns items based on text baseline.
+
+    align-items-stretch         → Stretches items to fill container height.
+
+
+
+[ GRID SYSTEM CLASSES ]
+ ----------------------
+
+    container           → A responsive fixed-width container.
+
+    container-fluid     → A full-width responsive container.
+
+    row                 → Creates a Bootstrap row.
+
+    col                 → Automatically sized columns.
+
+    col-*-number        → Defines the column size (e.g., col-md-6 for half width).
+
+    g-number            → Adds a gutter (space) between columns (e.g., g-3).
+
+
+
+
+[ Z-INDEX & SHADOW CLASSES ]
+ ---------------------------
+
+    shadow-none         → No shadow.
+
+    shadow-sm           → Small shadow.
+
+    shadow              → Default shadow.
+
+    shadow-lg           → Large shadow.
+
+    z-0                 → Sets z-index to 0.
+
+    z-1                 → Sets z-index to 1.
+
+    z-2                 → Sets z-index to 2.
+
+    z-3                 → Sets z-index to 3.
+
+
+
+[ RESPONSIVE BREAKPOINTS ]
+ -------------------------
+
+    xs (extra small)          → <576px (No specific prefix, applies to all screen sizes by default)
+
+    sm (small)                → ≥576px
+
+    md (medium)               → ≥768px
+
+    lg (large)                → ≥992px
+
+    xl (extra large)          → ≥1200px
+
+    xxl (extra extra large)   → ≥1400px
+
+
+
+[ RESPONSIVE GRID SYSTEM CLASSES ]
+ ---------------------------------
+    col                 → Automatically sized column.
+
+    col-sm-number       → Columns for small screens (≥576px).
+
+    col-md-number       → Columns for medium screens (≥768px).
+
+    col-lg-number       → Columns for large screens (≥992px).
+
+    col-xl-number       → Columns for extra-large screens (≥1200px).
+
+    col-xxl-number      → Columns for extra-extra-large screens (≥1400px).
+
+    ! Example: col-md-6 → Column takes half width on medium screens and larger.
+
+
+
+[ RESPONSIVE DISPLAY CLASSES ]
+ -----------------------------
+    
+    d-none        → Hides an element on all screens.
+
+    d-sm-none     → Hides on small (≥576px) screens and larger.
+
+    d-md-none     → Hides on medium (≥768px) screens and larger.
+
+    d-lg-none     → Hides on large (≥992px) screens and larger.
+
+    d-xl-none     → Hides on extra-large (≥1200px) screens and larger.
+
+    d-xxl-none    → Hides on extra-extra-large (≥1400px) screens and larger.
+
+    ! Example: d-lg-none d-md-block → Hides an element on large screens but shows it on medium and smaller screens.
+
+
+
+[ RESPONSIVE FLEX CLASSES ]
+ --------------------------
+    
+    d-sm-flex      → Makes the element a flex container on small screens and larger.
+
+    d-md-flex      → Flex container on medium screens and larger.
+
+    d-lg-flex      → Flex container on large screens and larger.
+
+    d-xl-flex      → Flex container on extra-large screens and larger.
+
+    d-xxl-flex     → Flex container on extra-extra-large screens and larger.
+
+    ! Example: d-md-flex d-none → Flex container on medium screens and larger, hidden on smaller screens.
+
+
+
+[ RESPONSIVE ALIGNEMENT CLASSES ]
+ --------------------------------
+    
+    justify-content-sm-start    → Aligns flex items to the start (≥576px).
+
+    justify-content-md-center   → Centers flex items (≥768px).
+
+    justify-content-lg-between  → Adds space between flex items (≥992px).
+
+    align-items-sm-end          → Aligns flex items to the bottom (≥576px).
+
+    align-items-md-center       → Centers flex items vertically (≥768px).
+
+
+
+[ RESPONSIVE MARGIN & PADDING CLASSES ]
+ --------------------------------------
+    
+    m-sm-3      → Adds margin size 3 for ≥576px.
+
+    p-md-4      → Adds padding size 4 for ≥768px.
+
+    mt-lg-5     → Adds top margin size 5 for ≥992px.
+
+    px-xl-2     → Adds horizontal padding size 2 for ≥1200px.
+
+
+
+[ RESPONSIVE WIDTH/HEIGHT CLASSES ]
+ ----------------------------------
+
+    w-sm-50    → Width 50% for ≥576px.
+
+    w-md-75    → Width 75% for ≥768px.
+
+    h-lg-100   → Full height for ≥992px.

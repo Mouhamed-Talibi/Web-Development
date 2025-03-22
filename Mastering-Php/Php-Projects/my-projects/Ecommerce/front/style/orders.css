@@ -1,0 +1,89 @@
+/* General page style */
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Container to hold content centered */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Table style */
+.tbl {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.tbl th, .tbl td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+/* Table header */
+.tbl thead th {
+    background-color: rgb(102, 216, 102);
+    color: black;
+    font-weight: bold;
+}
+
+/* Table rows */
+.tbl tbody tr:nth-child(even) {
+    background-color: #333;
+}
+
+.tbl tbody tr:nth-child(odd) {
+    background-color: #222;
+}
+
+.tbl tbody td{
+    color: rgb(252, 252, 252);
+}
+
+.tbl tbody #name{
+    color: burlywood;
+}
+
+/* Table footer */
+.tbl tfoot td {
+    font-weight: bold;
+    background-color: #444;
+    color: yellow;
+}
+
+/* Button styles */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+}
+
+.btn-danger {
+    background-color: red;
+}
+
+.btn-primary {
+    background-color: blue;
+}
+
+.btn-secondary {
+    background-color: grey;
+}
+
+/* Hover effects for buttons */
+.btn:hover {
+    opacity: 0.9;
+}

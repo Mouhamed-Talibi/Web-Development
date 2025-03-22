@@ -1,0 +1,105 @@
+						                                  CMD COMMANDS :
+							               ________________________
+
+
+cd ..                                                                                    - to return from the current folder 
+cd "directory|file name" 	                                     - to enter to the folder 
+cd cmder\                         			 - to enter the command line
+cd \ 					 - to return to the begining 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+md | mkdir 'file|diretory name'                                  - to create folder of file 
+md 'directory | file name' * N			- to create the folder N times 
+ls 					- list of the folders and files in he opened folder (in  linux )
+dir 					- list of the files and the folders (in windous ) 
+mkdir ..\ "name directory"                                           - opening the folder without returning to it 
+mkdir C:\ "dir_name"      			- openeing folder in the C disque 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+tree   					- show the directory structure
+tree  "C:\Program Files"			- Show the directory structure of the folder “Program Files” on the disk C:\ 
+mv | move  dir_name   "new_name"                            - changing the folder name
+mv | move   dir_name  exist_dir_name                      - transefiring the folder to the exist folder 
+mv dir_name ..                                                                - returning the folder to its old place 
+mv dir_name \  				- trensefering the foler to the C disque 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+rd              dir_name                                                       - delete directory 
+rmdir        dir_name                                                       - delete directory
+rename    dir_name   'new_name'    		- To rename the folder 
+cp -r         dir_name   'new_dir_name' 		- coping the original folder and some its contents 
+rm            dir_name 				- removing the folder 
+rm --help 					- getting help about the command 
+rm -r        dir_name 				- removing the folder with all its contents 
+rm -d        dir_name 				- removing the empty folders or files 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+echo "text"				- printing the text between the ""
+echo "text" > file_name 			- writing the text in the file and saving it 
+echo "text" >> file_name			- wiriting the text in the file wihout removing wat is inside it 
+cat file_name 				- showing the content of the file 
+cat * 					- showing the contents of all files in the folder
+cat file_name > "new_file_name" 		- coping the content of the old_file in the new_file 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+grep 					- find the text that you search for 
+greap 'expressin' -r 				- searching for the expression in all the folders and their contents 
+grep "expression" -r file_name                                     - searching for the expression in the specific file 
+grep "expression" -r -l 			- making a list of all the file and folers those have the expression 
+exit 					- closing the command line 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+file fil_name 				- to know the type of the file 
+move \? 					- ' \? ' give help about the command 
+pring "site_name" 				- verify if the site is working 
+ctrl + c 					- stop any opertors in the command line 
+tree \a 					- give you all the folders and files together 
+osk 					- Give you the keyboard in the screen 
+tasklist 					- give you everything working in your pc 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+explore  file|folder_name 				- opening the folder or the file 
+alias 						- the shortcuts of the commands 
+alias mo = mouhamed 				- shorting the mouhamed to mo 
+order && order 					- making two commands in the same time 
+whoami 						- printing your _user_name 
+systemonfo 					- give you all inforamtion about you system 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+ATTRIB +H +S +R myItem				- hide the file | folder myItem 
+ATTRIB -H -S -R myItem				- Unhide the file | folder myItem
+
+
+	TO CONTINUE COMMANDS VISIT THIS WEBSITE :     ss64
+						         ______
+
+
+________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

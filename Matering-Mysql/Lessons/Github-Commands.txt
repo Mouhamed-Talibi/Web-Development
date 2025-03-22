@@ -1,0 +1,216 @@
+
+
+						
+									    - Github     Commands : 
+									-----------------------------------
+
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+		
+									    - WHAT IS GIT & GTHUB ? : 
+									-----------------------------------------
+
+
+		- Git is Distributed version control system 
+		- Git is free an open source 
+		- Github is source for project sources [ gitlab, bitbucket ]
+		- Github simplify using Git 
+		- Git has Gui 
+
+
+
+									       WHY YOU MUST LEARN GIT ? :
+									-------------------------------------------------
+	
+
+
+		- Devs Contribute the same project 
+		- You can revert changes 
+		- You can collaborate ti create new features 
+		- You can Solve conflicts
+
+
+
+								          IMPORTANT WORDS ABOUT GIT & GITHUB : 
+								---------------------------------------------------------------------
+	
+
+		- Repository [ Repo ]: Where you Can put your projects 
+		- Branch                   :   Branch from the main repo 
+		- Local Repo 
+		- Remote Repo
+		- Commit [ Snapshot or checkpoint In your Local Repo ] 
+		- Clone (From Loal Or Remote)
+		- Push [ Umpoad Loval changes to Remote ]
+		- Pull [ You pull changes from remote Repo To Your local ]
+		- Pull Request [ Tell other about your changes to pull from local to remote ]
+	
+
+										   IMPORTANT NOTES 	
+										-------------------------------
+
+
+		- Create Resposity For every project
+		- Create a new branch for every Feature or enhacement 
+		- Anyone can push and pull Depend on Permissions 
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+									        COMMANDS : 
+								    ---------------------------------
+
+	- git clone (link of the repository)
+	- git status 			: The status of the directory
+	- git add    			: add the files to the staging area 
+	- git add * 	 		: add all files to the stagin area
+ 
+	- git reset head file_name  		 : Unstage the file  
+	- get restore --staged (filename) 	 : Unstage The File 
+
+	- git commit -m "message" 		 : when you commit the files you go from te stagin area to the local repo
+	- git branch  			 : give you all the branch in your projetc 
+	- git push repo_name branch_name            : upload your project to the github repository 
+	- git remote -v 			 : gives you all the remotes 
+	- git pull repo_name                                      : get all the modification from the rep to the local 
+
+	
+
+									              - Git config  :
+				                			    ----------------------
+
+
+	- git config -l 					: gives you list of the configs
+	- git help config 					: manual of git config 
+	- git config --global  (name_of_config)     			: get thevalue of the config 
+	- git config --global --unser (name_of_config) 		: unset the config 
+	- git config --global --edit 				: edit the config from an editor 
+	- touch file_name 					: make a new file 
+	- git config --global (name_of_config) "here you set the value of the config"
+
+
+										- Public key 
+				             					       -----------------------------
+
+	- ssh-keygen -t rsa -b 4096 -C "your email"  	: create your key 
+	- ssh -T git@github.com
+
+
+									- Repo For Existing Projects : 
+		              						     ------------------------------------------------
+
+	- First you need to gi to the directory that you want to up to github, then make a directory lie (Repositories-github) 
+	- Go to gihtub , create new repositpory 
+	- git init    			: initialize an empty repo in the exist folder 
+
+
+
+
+									- Git Aliases : 
+								              --------------------
+
+	- Aliases are used for the long commands  : 
+		- git config --global   alias.(the shortcut ) [ the command that we want to make the alias for ] 
+		- ( example : git config --global alias.st status )
+	- For Commands that has space : 
+		- git config --global   alias.(shortcut) "here the command that has the space"
+		- Search in google : [ git aliases ]
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+									- Branch- Merge
+							                               --------------------------
+
+	- git branch 			: get all branches
+	- git branch  branch_name 		: create new branch
+	- git checkout (branch_name)   	: move to this branch 
+	- git branch -d (branch_name) 		: delete branch 
+
+	- git checkout -b branch_name 	: create branch and move to it 
+	- git branch -m    			: rename the branch 
+
+								
+									- Mastering Stash : 
+								             ------------------------------
+
+	- We use stash when we have files and we don't want to up them to github , we just need them to end a task [ hide those files ] 
+	- git stash 			: hide the files after you add them 
+	- git stash pop 			: unstach the files and remove the box 
+	- git stash list 			: list of stached files 
+	- git stash save "message" 		: giving a title to the stash 
+	- git stash pop stash@{id}		: pop the stash that has the id 
+
+	- git drop stash@{id}		: drop the stash and ITS CONTENT that has the id 
+	- git stash show 			: show you your stashes 
+	- git stash clear 			: clear all your stashes with ITS CONTENT 
+
+		
+									- Restore & Clear 
+								            -----------------------------
+
+	- git restore --staged FILE_NAME 	: restore the file after add [ unstage the file ] 
+	- code FILE_NAME 			: open the file with vs code 
+	- git restore --staged  * 		: restore all files [ unstage all files ] 
+	- git clean -n 			: show you the files that it will delete 
+	- git clean -f 			: remove the files 
+
+
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+									- Resetting the head : 
+								                 ----------------------------
+	
+	- git log 				: show you the status of the log ( press q to get out from the log ) 
+	- git reset --hard ( hash of head file ) 	: remove the head file 
+	- git push origin BRANCH_NAME --force 	: force the repository to  update 
+
+					
+									- Ignoring files and dirs : 
+								               ----------------------------------
+
+
+	- create a file ( .gitignore )
+	- inside this file , write the extensions that you want to ignore ( *.log ) for example, that means that it will ignore any file has the extension ( . log )
+	- if you want it to not ignore a specified file use the ( ! ) , for example : [ !vip.log ] this file will not be ignored 
+	- git add -f [ NAME_OF_IGNORED_FILE  ]  : Force the git to add the ignored file 
+	- Search for [ GIT IGNORE PATTERNS ] 
+
+	
+									- Tag And Release : 
+								              -----------------------------
+
+	- git tag 					: shows you all tags 
+	- git tag ( tag_name) 			: for example ( v1.0 ) this is the recommonded writing for tags 
+	- git push origin (tag_name) 			: pushing the tag to the github 
+	- git tag -a (tag_name) -m " tag message "	: annotated tag 
+	- remeber to use for any version a different branch 
+	
+	- git tag -l " version_name.* " 			: shows you the list of the version
+	- git tag -d " tag_name " 			: delete the tag 
+	- git push origin --delete "tag_name" 		: delete the tag 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

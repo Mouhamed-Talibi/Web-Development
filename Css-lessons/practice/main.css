@@ -1,0 +1,38 @@
+.container {
+    padding: 10px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.about {
+    height: 50vh;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+
+.about-text {
+    flex: 1 1 300px; /* Flex-grow, flex-shrink, flex-basis */
+    align-self: center;
+}
+
+.about-text h1 {
+    color: rgb(8, 7, 7);
+}
+
+.about-image {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 30px;
+}
