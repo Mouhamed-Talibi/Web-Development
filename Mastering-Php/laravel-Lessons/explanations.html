@@ -1,0 +1,153 @@
+<!-- resources/views -->
+- This is the folder where all the views are stored. 
+- Views are the files that are returned by the controller. 
+- They are the files that are displayed to the user. 
+- The views are written in HTML and PHP.
+
+<!-- routes | Requeste Types -->
+- Get    : read a resource
+- Post   : create a resource
+- Put    : update a resource ( full update )
+- Patch  : update a resource ( partial update )
+- Delete : delete a resource
+
+* uri must be unique
+* view function : it call the view file
+
+<!-- Passing Data to the View -->
+- The view function can accept an array as a second argument.
+- view ('welcome', ['name' => 'Samantha']);
+
+<!-- Dynamic variable -->
+- Route::get('/hello/ { var_name }', function ($var_name) {
+    return view('hello', [ 'var_name' => $var_name ]);
+});
+
+[ Using request object ]
+------------------------
+- Route::get('/{varname}', function (Request $request) {
+    dd ($request->varname);
+    return view("index", ['varname' => $request->varname]);
+});
+
+[ Getting Vars By Compact Method ]
+----------------------------------
+- compact : it is a php function that creates an array from the variables that are passed to it.
+- Route::get('/{varname}', function ($varname) {
+    return view("index", compact('varname'));
+});
+
+<!-- debugging function -->
+- dd($var_name) : it will display the variable and stop the execution of the code.
+- dump($var_name) : it will display the variable and continue the execution of the code.
+
+<!-- Controller ( app/http/controllers ) -->
+- it is a class that contains methods that are called "actions" or "methods".
+
+<!-- Using Controler In Routing -->
+Route::get('/', ['\nameSpace\controllerName', 'actionName'] );
+    exmaple : 
+        Route::get("/", ['\App\Http\Controllers\homeController', 'home']);
+
+[ Best method ]
+---------------
+Route::get('/', [controllerName::class, 'methodName']);
+
+<!-- Blade -->
+- Blade is a templating engine that is included with Laravel.
+- We can write php code in the balde template 
+- Best Practice : 
+    - use blade syntax as much as possible
+    - use php code only when necessary
+
+    * {{ var_name }} 
+        : this how we print the data using blade template 
+
+    <!-- foreach -->
+    * @foreach ($var_name as $var) 
+        : this is how we loop through the data using blade template
+    * @ endforeach 
+        : this is how we end the loop
+
+    <!-- if statement -->
+    * @if 
+        : this is how we write if statement using blade template
+    * @else 
+        : this is how we write else statement using blade template 
+    * @endif
+        : this is how we end the if statement
+
+    <!-- unless -->
+    * unless
+        : it is the opposite of if statement 
+            It is used for one time 
+    * endunless 
+        : it is the opposite of endif statement
+
+    <!-- isset -->
+    * @isset($var_name)
+        : it is used to check if the variable is set or not
+    * @endisset
+        : it is used to end the isset statement
+
+    <!-- switch -->
+    * @switch ($var_name)
+        : it is used to check multiple conditions
+        * @case('value')    
+            : it is used to check the value of the variable
+            * @break
+                : it is used to break the switch statement
+        * @default 
+            : it is used to set the default value 
+    * @endswitch
+        : it is used to end the switch statement
+
+    <!-- empty -->
+    * @empty($var_name)
+        : it is used to check if the variable is empty or not	
+    * @endempty
+        : it is used to end the empty statement
+
+    <!-- php -->
+    * @php   
+        : it is used to write php code in the blade template
+    * @endphp
+        : it is used to end the php statement
+
+    <!-- include -->
+    * @include ('path_to_file')
+        : it is used to include the file in the blade template
+            replace the / by the . in the path
+
+    * @includeIf ('path_to_file')
+        : it is used to include the file if it exists
+
+    * @includeWhen ($var_name, 'path_to_file')
+        : it is used to include the file when the condition is true
+
+    * @includeFirst (['path_to_file1', 'path_to_file2'])
+        : it is used to include the first file that exists
+
+    <!-- once -->
+    * @once
+        : it is used to include the file only once
+    * @endoce 
+        : it is used to end the once statement
+
+    <!-- extends -->
+    * @extends ('layout_name')
+        : it is used to extend the layout
+
+    <!-- yeild -->
+    * @yeild ('sectionName', 'defaultValue')
+        : defines a placeholder for a Blade template section.
+
+    <!-- section -->
+    * @section('sectionName')
+        : defines a section in a Blade template for content.
+    * @endsection 
+        : ending the section blade
+
+
+<!-- comments in blade -->
+- For secure comments, use the {{-- --}} syntax.
