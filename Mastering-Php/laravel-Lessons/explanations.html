@@ -148,6 +148,123 @@ Route::get('/', [controllerName::class, 'methodName']);
     * @endsection 
         : ending the section blade
 
-
 <!-- comments in blade -->
 - For secure comments, use the {{-- --}} syntax.
+
+<!-- Blade Components -->
+- Help in creating reusable UI components, reducing redundancy, and improving code maintainability in 
+    Laravel applications.
+- The command will create something like this: 
+    app\View\Components\ComponentName.php
+    resources\views\components/component-name.blade.php
+- This is how to call a component in your Blade template:
+    <x-component-name/>
+
+* Passing data to the component:
+    <x-component-name prop="" prop_2=""/>
+
+* Using data in the component: 
+    @props(['propName', 'prop_2Name'])
+        : We write this at the top of the component file.
+
+* Passing non-string data:
+    <x-component-name :varName="$dataVar"/>
+
+* component slots 
+    - A Blade component slot is a placeholder for dynamic content.
+    - As advice use the props as possible as you can 
+
+    - Syntahx : 
+    <x-component-name/>
+        Here we write slots
+    </x-component-name>
+
+    - Example : 
+        In the Blade template :
+            <x-alert type="primary">
+                <strong>This is an alert from alert component</strong>
+            </x-alert>
+        In The blade component : 
+            @props(['type'])
+            <div class="alert alert-{{$type}} text-center border border-dark mt-5" role="alert">
+                {{$slot}}
+            </div>
+
+<!-- what id O/R Mapping -->
+- (Object-Relational) Mapping in Laravel is Eloquent, which converts database tables into PHP objects, allowing developers to 
+    interact with databases using object-oriented syntax instead of raw SQL queries. 
+- Eloquent orm in laravel 
+    : is Laravel's powerful database abstraction tool that offers several key features
+
+<!-- Laravel Migrations -->
+- Migrations are like version control for your database.
+- They allow you to define and modify your database schema in a programmatic way.
+
+<!-- Migration Structure -->
+- Each migration file contains two methods:
+    * up()  : Defines the changes to apply to the database.
+    * down(): Reverts the changes made by the up() method.
+
+<!-- what is a factory -->
+- feature that allows you to generate fake data for your database tables.
+- It is mainly used for testing and seeding databases with randomized yet structured data.
+- the model class should use the hasFactory;
+
+- to excute any seeder in the Database seeder :
+    $this->call(
+        SeederName::class,
+        SeederName::class
+    );
+
+<!-- Seeding -->
+- Seeders are used to populate your database with dummy data for testing and development purposes. They allow you to 
+    insert records into your tables automatically.
+
+    * seeding using Db :
+        DB::table('users')->insert([
+            'name' => STR::random(20),
+            'deployment' => STR::random(20),
+            'description' => STR::random(30),
+            'password' => Hash::make("password")
+        ]);
+
+<!-- Naming a route -->
+- Route::get("/", [homeController::class, 'index'])->name('home');
+- using the route name in your blade templat : 
+    {{ route('routeName') }}
+
+<!-- get data from database -->
+In controllerClass : 
+    - $varName = ModelName::all();
+
+<!-- Helpers | limit chars  -->
+STR::limit($varName, LimitNumber)
+
+<!-- pagination -->
+in the controller :
+    $varName = ModelName::paginate(10);
+    return view('viewName', compact('varName'));
+
+{{ $varName->links() }}
+    : this is how we display the pagination links in the blade template
+
+telling laravel to use bootstrap 5 for pagination links:
+    - In the AppServiceProvider.php file, add the following code in the boot method:
+        Paginator::useBootstrapFive();
+
+<!-- router condition -->
+- Route::get('/{varname}', function ($varname) {
+    return view("index", ['varname' => $varname]);
+})->where('varname', '[0-9]+'); // only numbers
+
+- Route::get('/{varname}', function ($varname) {
+    return view("index", ['varname' => $varname]);
+})->where('varname', '[a-zA-Z]+'); // only letters
+
+<!-- abort function -->
+- abort(404); : it will show the 404 error page
+- abort(403); : it will show the 403 error page
+
+<!-- passing params to the route -->
+<a href="{{ route( 'routeName', $varName ) }}" class="btn btn-primary">voir</a>
+    : this is how we pass the params to the route 
