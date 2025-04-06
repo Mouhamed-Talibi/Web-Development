@@ -1,0 +1,28 @@
+.footer {
+    background-color: #152d3b;
+}
+
+.footer .copyright > span {
+    color: var(--green-color);
+}
+
+.footer .copyright div span {
+    color: var(--yellow-color);
+}
+
+.footer .contact ul svg {
+    width: 20px;
+    height: 20px;
+}
+
+.footer .facebook {
+    background-color: #1084d1;
+}
+
+.footer .linkedin {
+    background-color: #3b70d1;
+}
+
+.footer .instagram {
+    background-color: #d32450;
+}
