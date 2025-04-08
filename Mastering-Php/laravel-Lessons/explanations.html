@@ -148,6 +148,11 @@ Route::get('/', [controllerName::class, 'methodName']);
     * @endsection 
         : ending the section blade
 
+    <!-- error -->
+    @error('var_name')
+        : it is used to display the error message for the variable
+    @enderror
+
 <!-- comments in blade -->
 - For secure comments, use the {{-- --}} syntax.
 
@@ -268,3 +273,123 @@ telling laravel to use bootstrap 5 for pagination links:
 <!-- passing params to the route -->
 <a href="{{ route( 'routeName', $varName ) }}" class="btn btn-primary">voir</a>
     : this is how we pass the params to the route 
+
+<!-- csrf -->
+@csfr 
+    : this is how we add the csrf token to the form
+        you have to add this line in the form tag
+
+<!-- validating inputs in controller -->
+$request->validate([
+    'varName' => 'required | string | max:55',
+]);
+
+<!-- inserting data by the ORM -->
+modeName::create([
+    'varName' => $value,
+]);
+
+<!-- adding fillable to model -->
+protected $fillable = [
+    'varName',
+];
+
+<!-- another way to insert data -->
+modelName::create($request->all());
+    : this is how we insert the data using the request object
+        this will insert all the data in the database
+        the condition is that the model should have the fillable property
+        and the request inputs should have the same name as the column in the database
+
+<!-- flashbags -->
+- flashback is a way to store data in the session for a single request.
+- It is used to store data that you want to display to the user after a redirect.
+
+sending flashback in the controller:
+    return redirect()->route('routeName')->with('keyname', 'value');
+        : this is how we send the flashback in the controller
+        * session()->has('keyname')
+            : this is how we check if the session has the keyname
+                if true : session('kayname')
+                    : this is how we get the value of the session
+
+<!-- redirection -->
+redirect()->route('routeName') => to_route('routeName');
+    : this is how we redirect to the route
+        the best redicrection you can use 
+
+redirect() 
+    : this is how we redirect to the url
+
+redirect()->action('controllerName@methodName')
+    : this is how we redirect to the controller method
+
+backwithInput()
+    : this is how we redirect to the previous page with the input data
+
+
+<!-- route model binding -->
+* Instead if this code :
+    public function show(Request $request) {
+        $id = (int) $request->id;
+        $profile = Profile::find($id);
+        // if profile not found
+        if (!$profile) {
+            return abort(403);
+        } else {
+            return view('profile.show', compact('profile'));
+        }
+    }
+
+* Use route model binding :
+    public function show(Profile $profile) {
+        // if profile not found
+        if (!$profile) {
+            return abort(403);
+        } else {
+            return view('profile.show', compact('profile'));
+        }
+    }
+
+* Instead if this route : 
+    Route::get('/profiles/{id}', [ProfileController::class, 'show'])
+    ->where('id', '\d+')
+    ->name('profile.show');
+
+* The new route :
+    Route::get('/profiles/{profile}', [ProfileController::class, 'show'])
+    ->where('profile', '\d+')
+    ->name('profile.show');
+
+
+<!-- getRouteKeyName -->
+* public function getRouteKeyName() {
+    : it is used to get the route key name for the model.
+        By default, it is id, but you can change it to any other column name.
+    * Example : 
+        public function getRouteKeyName() {
+            return 'email';
+        }
+    * usage in route : 
+        Route::get('/profiles/{profile:email}', [ProfileController::class, 'show'])
+        ->where('email', '\d+')
+        ->name('profile.show');
+}
+
+<!-- validating and displaying errors in a form -->
+* $request->validate([
+    'varName' => 'required | string | min:10 | max:55',
+    'varName2' => 'required | integer | between: 1, 100',
+    'varName3' => 'required | date',
+    'varName4' => 'required | email',
+    'varName5' => 'required | image | max: 2048',
+    'varName6' => 'required | url',
+    'varName7' => 'required | unique:table_name',
+]);
+
+* displaying error in your blade template 
+    @error('varName')
+        <div class="alert alert-danger" role="alert">
+            {{ $message }}
+        </div>
+    @enderror

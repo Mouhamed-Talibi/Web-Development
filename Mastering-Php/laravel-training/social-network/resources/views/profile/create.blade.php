@@ -5,36 +5,48 @@
                 <h2 class="text-center text-primary fw-bold">Créer un Profil</h2>
                 <hr class="mb-4">
                 
-                <form action="" method="POST">
+                <form action="{{ route('profiles.store') }}" method="POST">
+                    {{-- csrf  --}}
+                    @csrf
+
+                    {{-- Check if there are any errors --}}
+                    @if ($errors->any())
+                        <x-alert type="danger">
+                            @foreach ($errors->all() as $error)
+                                {{ $error }} <br>
+                            @endforeach
+                        </x-alert>
+                    @endif
+
                     {{-- First Name --}}
                     <div class="mb-3">
                         <label class="form-label fw-bold">Prénom</label>
-                        <input type="text" name="firstName" class="form-control shadow-sm" required>
+                        <input type="text" name="firstName" class="form-control shadow-sm">
                     </div>
 
                     {{-- Last Name --}}
                     <div class="mb-3">
                         <label class="form-label fw-bold">Nom</label>
-                        <input type="text" name="lastName" class="form-control shadow-sm" required>
+                        <input type="text" name="lastName" class="form-control shadow-sm">
                     </div>
 
                     {{-- Age --}}
                     <div class="mb-3">
                         <label class="form-label fw-bold">Âge</label>
-                        <input type="number" name="age" class="form-control shadow-sm" placeholder="ex: 25" required>
+                        <input type="number" name="age" class="form-control shadow-sm" placeholder="ex: 25">
                     </div>
 
                     {{-- Email --}}
                     <div class="mb-3">
                         <label class="form-label fw-bold">Email</label>
-                        <input type="email" name="email" class="form-control shadow-sm" placeholder="example@gmail.com" required>
+                        <input type="email" name="email" class="form-control shadow-sm" placeholder="example@gmail.com">
                     </div>
 
                     {{-- Password with Toggle Visibility --}}
                     <div class="mb-3 position-relative">
                         <label class="form-label fw-bold">Mot de passe</label>
                         <div class="input-group">
-                            <input type="password" name="password" id="password" class="form-control shadow-sm" placeholder="Minimum 8 caractères" required>    
+                            <input type="password" name="password" id="password" class="form-control shadow-sm" placeholder="Minimum 8 caractères">
                         </div>
                     </div>
 

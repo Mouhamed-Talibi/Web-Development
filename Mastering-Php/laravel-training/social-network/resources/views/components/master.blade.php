@@ -28,6 +28,7 @@
         @include('partials.nav')
 
         <main>
+            @include('partials.flashbag')
             {{$slot}}
         </main>
 

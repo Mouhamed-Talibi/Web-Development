@@ -7,4 +7,14 @@
     class Profile extends Model
     {
         use HasFactory;
+
+        // filables 
+        protected $fillable = [
+            'firstName',
+            'lastName',
+            'age',
+            'email',
+            'password',
+            'description'
+        ];
     }
