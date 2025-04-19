@@ -53,7 +53,7 @@ Route::get('/', ['\nameSpace\controllerName', 'actionName'] );
 ---------------
 Route::get('/', [controllerName::class, 'methodName']);
 
-<!-- Blade -->
+<!-- Blade directives -->
 - Blade is a templating engine that is included with Laravel.
 - We can write php code in the balde template 
 - Best Practice : 
@@ -153,6 +153,20 @@ Route::get('/', [controllerName::class, 'methodName']);
         : it is used to display the error message for the variable
     @enderror
 
+    <!-- auth -->
+    @auth 
+        : check if a user is authenticated
+    @endauth
+
+    <!-- guest -->
+    @guest 
+        : used to show content only to non-authenticated users (visitors).
+    @endguest
+
+    <!-- method -->
+    @method('methodname') 
+        : The @method directive in Laravel is used to spoof HTTP methods that aren't supported by HTML forms 
+            (which only support GET and POST).
 <!-- comments in blade -->
 - For secure comments, use the {{-- --}} syntax.
 
@@ -385,6 +399,7 @@ backwithInput()
     'varName5' => 'required | image | max: 2048',
     'varName6' => 'required | url',
     'varName7' => 'required | unique:table_name',
+    'password' => 'required | string | min: 8 | max:100|confirmed'
 ]);
 
 * displaying error in your blade template 
@@ -393,3 +408,101 @@ backwithInput()
             {{ $message }}
         </div>
     @enderror
+
+* Hashing password 
+    $formFields['password'] = Hash::make($request->password);
+
+
+<!-- professional way to use the request validation -->
+- create a request class 
+- write the validation rules in the rules function 
+- in your action use the request class name 
+    public function store (ProfileRequest $request ) {
+        $formFields = $request->validated(); 
+    }
+
+<!-- saving old values for forms -->
+value="{{ old('inputName')}}"
+
+<!-- authentification -->
+- the process of verifying the identity of a user, device, or system before granting access to a resource, 
+    like a website, app, or system.
+
+- this is how to authenticate your data :
+    $credentials = ['email' =>$email, 'password' =>$password];
+    dd(Auth::attempt($credentials));
+
+- check authentification
+    if(Auth::attempt($credentials)) {
+        // creating a session
+        $request->session()->regenerate();
+        // redirect to home 
+        return to_route("home");
+    } else {
+        return back()->withErrors([
+            'error' => "email ou mot de passe incorrect !"
+        ])->onlyInput('email');
+    }
+
+- laravel for authentification works on users table to check data 
+- go to config/auth.php 
+    'users' => [
+    'driver' => 'database',
+    'table' => 'yourTableName',
+    ]
+
+<!-- Using auth to access data from Db -->
+- {{ auth()->user()->fieldName }}
+
+<!-- delere in laravel -->
+- in youre delete form use the blade directive ( method('MethodName') )
+- in your route use the 
+    Route::delete('/profiles/{profile}', [ProfileController::class, 'destroy'])
+- in your delete action : 
+    public function destroy(Profile $profile) {
+        $profile->delete();
+        return to_route('profiles.profiles')->with('success', 'Profile est supprimer !');
+    }
+
+<!-- modify in laravel  -->
+- in your route : 
+    // edit route
+    Route::get('profiles/{profile}/edit', [ProfileController::class, 'edit'])->name('profiles.edit');
+    // update profile 
+    Route::put('profile/{profile}', [ProfileController::class, 'update'])->name('profiles.update');
+
+- in your action :
+    public function update(ProfileRequest $request, Profile $profile) {
+        $formFields = $request->validated();
+        $profile->fill($formFields)->save();
+        return to_route("profile.show", $profile->id)->with('success', "Mis a jour de profile resussit !");
+    }
+
+
+<!-- handling an image -->
+$fileName = $request->file('image')->store('images','public');
+* if you want to manage file name use the method [ storeAs() ]
+$formFields['image'] = $fileName;
+
+<!-- hard & soft delete -->
+- hard delete : 
+    means that when you delete data from db you can't access it anymore ( like this data never saved in the db )
+- soft delete :
+    means that when you delete data from db you didn't delete it extremly but you can access it in case you need it 
+    adding a folumn deleted_at in your db tables 
+
+* create a soft delete column ( in your migrations )
+    $table->softDeletes();
+* how to use soft delete ( in your model )
+    use SoftDeletes;
+
+<!-- manage time displaying -->
+- using protected property :
+    in yout model : protected $date = ['columnName'];
+- search for Carbon package
+
+<!-- Security : csrf -->
+- csrf : means cross site request forgery ( an attak by the hacker to database, form )
+- use blade directive @csrf in your forms 
+- or write this by your hands : 
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">

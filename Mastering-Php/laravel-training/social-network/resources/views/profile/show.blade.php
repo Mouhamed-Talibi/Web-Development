@@ -1,39 +1,18 @@
 <x-master title="{{$profile->firstName}} {{$profile->lastName}}">
-    <div class="container">
-        <div class="card shadow-sm my-5">
-            <div class="card-header bg-primary text-white">
-                <h1 class="text-center mb-0">Profile</h1>
-            </div>
-            <div class="card-body p-4">
-                <div class="row profile-info">
-                    <div class="col-md-8 mx-auto">
-                        <div class="profile-item mb-4">
-                            <label class="text-muted">First Name</label>
-                            <h3 class="profile-value">{{ $profile->firstName }}</h3>
-                        </div>
-
-                        <div class="profile-item mb-4">
-                            <label class="text-muted">Last Name</label>
-                            <h3 class="profile-value">{{ $profile->lastName }}</h3>
-                        </div>
-
-                        <div class="profile-item mb-4">
-                            <label class="text-muted">Age</label>
-                            <h3 class="profile-value">{{ $profile->age }}</h3>
-                        </div>
-
-                        <div class="profile-item mb-4">
-                            <label class="text-muted">Email</label>
-                            <h3 class="profile-value">{{ $profile->email }}</h3>
-                        </div>
-
-                        <div class="profile-item mb-4">
-                            <label class="text-muted">Description</label>
-                            <h3 class="profile-value">{{ $profile->description }}</h3>
-                        </div>
-                    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="card py-4">
+                <img class="card-img-top rounded-circle mx-auto my-2" src="{{asset('storage/' . $profile->image )}}" style="width: 210px; height: 200px;" alt="Title" />
+                <div class="card-body text-center">
+                    <h4 class="card-title"># {{ $profile->id }} {{$profile->firstName}} {{$profile->lastName}}</h4>
+                    <p class="card-text mt-3">Email : <a href="mailto:">{{$profile->email}}</a></p>
+                    Creer en : <small>{{ $profile->created_at->format('D-m-Y') }} </small>
+                    <p class="bg-success bg-opacity-75 text-light fw-bold p-3 w-50 mx-auto mt-4">
+                        {{$profile->description }}
+                    </p>
                 </div>
             </div>
+            
         </div>
     </div>
 </x-master>

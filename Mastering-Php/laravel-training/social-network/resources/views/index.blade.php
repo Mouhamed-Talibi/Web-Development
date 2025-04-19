@@ -1,12 +1,7 @@
 <x-master title="Acceuil">
-        {{-- calling userstable component --}}
-        <x-users-table :users="$users" />
-
-        {{-- calling alert component --}}
-        <x-alert type="primary">
-            <strong>This is an alert <h1>Success</h1> from alert component</strong>
-        </x-alert>
-        <x-alert type="danger">
-            <strong>This is an alert <h1>Danger</h1> from alert component</strong>
-        </x-alert>
+    <div class="continer py-5 pb-5">
+        <h2 class="text-center text-primary">
+            Home Page
+        </h2>
+    </div>
 </x-master>

@@ -1,7 +1,9 @@
 <?php
 
     namespace App\Http\Controllers;
+    use App\Http\Requests\ProfileRequest;
     use App\Models\Profile;
+    use Hash;
     use Illuminate\Http\Request;
 
     class profileController extends Controller
@@ -28,35 +30,45 @@
         }
 
         // store profile action 
-        public function store(Request $request) {
-            $firstName = $request->input('firstName');
-            $lastName = $request->input('lastName');
-            $age = $request->input('age');
-            $email = $request->input('email');
-            $password = $request->input('password');
-            $description = $request->input('description');
-
+        public function store(ProfileRequest $request) {
             // validating inputs
-            $request->validate([
-                'firstName' => 'required | string | min:5 | max:55',
-                'lastName' => 'required | string | max:55',
-                'age' => 'required | integer | min:10 | max: 99',
-                'email' => 'required | string | email | max:255 | unique:profiles',
-                'password' => 'required | string | min: 8 | max:255',
-                'description' => 'nullable | string',
-            ]);
+            $formFields = $request->validated();
+
+            // hashing password
+            $formFields['password'] = Hash::make($request->password);
+
+            // handling image 
+            $fileName = $request->file('image')->store('images','public');
+            $formFields['image'] = $fileName;
 
             // inserting data
-            Profile::create([
-                'firstName' => $firstName,
-                'lastName' => $lastName,
-                'age' => $age,
-                'email' => $email,
-                'password' => $password,
-                'description' => $description,
-            ]);
+            Profile::create($formFields);
 
             // redirecting to profiles page
             return redirect()->route('profiles.profiles')->with('success', 'votre profile ajouter en succes');
+        }
+
+        // destroy action 
+        public function destroy(Profile $profile) {
+            $profile->delete();
+            return to_route('profiles.profiles')->with('success', 'Profile est supprimer !');
+        }
+
+        // edit profile 
+        public function edit(Profile $profile) {
+            $profile = Profile::findOrFail($profile->id);
+            return view('profile.edit', compact('profile'));
+        }
+
+        // update action 
+        public function update(ProfileRequest $request, Profile $profile) {
+            $formFields = $request->validated();
+            $formFields['password'] = Hash::make($request->password);
+            $image = $request->file('image');
+            if($request->hasFile('image')) {
+                $formFields['image'] = $request->file('image')->store('images', 'public');
+            }
+            $profile->fill($formFields)->save();
+            return to_route("profile.show", $profile->id)->with('success', "Mis a jour de profile resussit !");
         }
     }
