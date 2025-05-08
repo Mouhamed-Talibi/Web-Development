@@ -33,8 +33,8 @@
 
         // logout action 
         public function logout(){
-            Session::flush();
+            session()->flush();
             Auth::logout();
-            return to_route('loginForm')->with('success', 'Vous etes biens deconnecter');
+            return to_route('login')->with('success', 'Vous etes biens deconnecter');
         }
     }

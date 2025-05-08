@@ -3,5 +3,6 @@
         <h2 class="text-center text-primary">
             Home Page
         </h2>
+        <p class="text-center">Page visited ({{ $visitedTime }}) times</p>.
     </div>
 </x-master>

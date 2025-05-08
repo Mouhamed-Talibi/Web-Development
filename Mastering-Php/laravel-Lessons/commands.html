@@ -65,3 +65,37 @@ php artisan make:migration add_fieldName_to_tableName_table --table=tableName
 
 <!-- create a storage link -->
 php artisan storage:link
+
+<!-- list your route  -->
+php artisan route:list --name=routeName
+
+<!-- creating a model with its migration -->
+php artisan make:model ModelName -m
+php artisan make:model ModelName --migration
+
+<!-- creating model with migration, controller and resource -->
+php artisan make:model ModelName -mcr
+
+<!-- caching route -->
+php artisan route:cache
+
+<!-- clearing route cache -->
+php artisan route:clear
+
+<!-- create a policy -->
+php artisan make:policy policyName --model=modelName
+
+<!-- create an api controller -->
+php artisan make:controller Api/controllerName --model=modelName --api
+
+<!-- create a resource -->
+php artisan make:resource resurceName
+
+<!-- creating cache table -->
+php artisan cache:table
+
+<!-- create a session table -->
+php artisan session:table
+
+<!-- create a mail -->
+php artisan make:mail mailName

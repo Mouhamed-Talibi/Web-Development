@@ -167,6 +167,13 @@ Route::get('/', [controllerName::class, 'methodName']);
     @method('methodname') 
         : The @method directive in Laravel is used to spoof HTTP methods that aren't supported by HTML forms 
             (which only support GET and POST).
+
+    <!-- can -->
+    @can 
+        : check authorization for a specific ability (like update, delete, etc.) defined in a policy or via a Gate.
+    @endcan
+
+
 <!-- comments in blade -->
 - For secure comments, use the {{-- --}} syntax.
 
@@ -506,3 +513,506 @@ $formFields['image'] = $fileName;
 - use blade directive @csrf in your forms 
 - or write this by your hands : 
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+<!-- route groups -->
+- Using name : 
+    Route::name('repeatedName')->group(function () {
+        your routes here
+    });
+
+- Using prefix :
+    Route::prefix('prefixName')->group(function () {
+        your routes here
+    });
+
+- Using name and prefix :
+    Route::name('repeatedName')->prefix('prefixName')->group(function () {
+        your routes here
+    });
+
+<!-- class group -->
+- Route::controller(ProfileController::class)->group(function () {
+    your route here
+});
+
+- Example : 
+    Route::name('profiles.')->prefix('profiles')->group(function () {
+        Route::controller(ProfileController::class)->group(function () {
+
+            Route::get('/{profile}/edit', 'edit')->name('edit');
+            Route::put('/{profile}', 'update')->name('update');
+
+        });
+    });
+
+<!-- route ressources -->
+- if you respect the naming rules of the route you can easily generate a RESTful resource controller using 
+    Route::resource('profiles', ProfileController::class);
+- this will create the following routes : 
+    - index : GET /profiles
+    - create : GET /profiles/create
+    - store : POST /profiles
+    - show : GET /profiles/{profile}
+    - edit : GET /profiles/{profile}/edit
+    - update : PUT/PATCH /profiles/{profile}
+    - destroy : DELETE /profiles/{profile}
+
+- Best practices for methods naming in your app 
+    * show method : index 
+    * create method : create
+    * store method : store
+    * edit method : edit
+    * update method : update
+    * destroy method : destroy
+
+
+<!-- Midllewares -->
+- Middleware is a way to filter HTTP requests entering your application.
+- Middleware can be used for various purposes, such as authentication, logging, and modifying requests or responses.
+- Middleware can be applied to routes or groups of routes.
+
+* using a middleware :
+    Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
+        : this is how we use a middleware in a route
+
+    you can also use the middleware in your controller constructor :
+        public function __construct() {
+            $this->middleware('auth');
+        }
+
+    you can specify wich methods shouldn't have the middleware :
+        public function __construct() {
+            $this->middleware('auth')->except(['index', 'show']);
+        }
+
+* gourping middleware :
+    Route::middleware(['guest'])->group(function () {
+        Route::get('/login', [LoginController::class, 'loginForm'])->name('login');
+        Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+    });
+
+* without middleware : 
+    Route::middleware(['guest', 'auth'])->group(function () {
+        Route::get('/logout', [LoginController::class, 'logout'])->name('logout')->withoutMiddleware('guest');
+    });
+
+<!-- Optioal route -->
+- it is a route that can be used without passing the parameter
+- Route::get('/profile/{id?}', [ProfileController::class, 'show'])->name('profile.show');
+    : this is how we create an optional route 
+        the ? means that the parameter is optional
+
+<!-- Route functions -->
+- dd(Route::current());
+    : this will display the current route
+
+- dd(Route::currentRouteName());
+    : this will display the current route name
+
+- dd(Route::currentRouteAction());
+    : this will display the current route action
+
+* redirect the user to another site :
+    return redirect()->away('https://www.google.com');
+        : this is how we redirect the user to another site
+
+* route caching 
+    : it is a way to speed up your application by caching the routes in a single file.
+        best usage when you are in a production server ,not in a development server
+        
+
+<!-- service container & dependencies injection -->
+- Service container is a powerful tool for managing class dependencies and performing dependency injection in Laravel.
+- Dependency injection is a design pattern that allows you to inject dependencies into a class instead of creating them inside the class.
+- a service is a class that provides a specific functionality to your application.
+
+✅ tight coupling 
+    : when a class depends on another class directly, making it harder to manage and test.
+        Route::get('/sum/{a}/{b}', function($a, $b) {
+            $calculationCalss = new Calculation;
+            $calculation = $calculationCalss->sum($a, $b);
+            return "the sum of " . $a . " and " . $b . " is " . $calculation;
+        })->name('route');
+
+✅ Dependency injection [ Loose coupling ]
+    Route::get('/sum/{a}/{b}', function($a, $b, Calculation $calculation) {
+        $result = $calculation->sum($a, $b);
+        return "the sum of " . $a . " and " . $b . " is " . $result;
+    })->name('route');
+    // This demonstrates how to utilize Laravel's service container for dependency injection
+    📍 recommonded to use it instead of tight coupling for better maintainability and testability
+
+✅ Service container 
+    - Laravel's service container allows you to bind classes and their dependencies, making it easy to resolve them throughout your application. 
+        You can register bindings in the `AppServiceProvider` or create your own service providers for better organization. This facilitates cleaner 
+        code and adherence to the Dependency Injection principle, enhancing test
+
+
+<!-- Handling forms - request / input / string -->
+- Laravel provides a simple and elegant way to handle forms using Blade templates and the Form facade.
+
+- $request->input('name', 'defaultValue if field not found in request')
+    : this is how we get the input value from the request object
+
+- $request->string('name', 'defaultValue if field not found in request')
+    : this is how we get the string value from the request object
+
+- $request->date('name', 'defaultValue if field not found in request')
+    : this is how we get the date value from the request object
+
+- $request->only('name', 'name2')
+    : this is how we get the only values from the request object
+
+- $request->except('name', 'name2')
+    : this is how we get the except values from the request object
+
+- $request->mergeIfMissing(['name' => 'value'])
+    : this is how we merge the request object with the new values
+        when the user doesn't enter a value in the form you can set a default value for it
+
+- $request->hasAny(['name', 'name2'])
+    : this is how we check if the request has any of the values
+            it will return true if any of the values exist in the request object
+
+- $request->missing(['name', 'name2']) 
+    : this is how we check if the request has any of the values
+            it will return true if any of the values doesn't exist in the request object
+
+- $request->whenHas('name', function ($value) {
+    // do something with the value
+})
+    : this is how we check if the request has the value and do something with it
+
+
+<!-- Laravel responce  -->
+- Laravel provides a simple and elegant way to handle HTTP responses using the Response facade.
+- Laravel also provides a simple way to handle cookies using the Cookie facade.
+
+✅ code status 
+    : 200 OK
+    : 201 Created
+    : 204 No Content
+    : 400 Bad Request
+    : 401 Unauthorized
+    : 403 Forbidden
+    : 404 Not Found
+    : 500 Internal Server Error
+    : 503 Service Unavailable
+
+✅ using response in route 
+    * for downlaod a file 
+        return response()->download($pathToFile, $name, $headers, $disposition);
+
+
+<!-- Laravel cookies -->
+- Cookies are small pieces of data that are stored on the user's computer by the web browser while browsing a website.
+- Cookies are used to remember information about the user, such as login credentials, preferences, and other data.
+- Cookies are sent to the server with every request, allowing the server to identify the user and provide a personalized experience.
+
+* setting a cookie 
+    $responce = new Response();
+    return $responce->withCookie(cookie('name', 'value', $minutes));
+
+* settings a cookie for ever 
+    $responce = new Response();
+    return $responce->withCookie(cookie()->forever('name', 'value'));
+
+* get the cookie value 
+    $value = $request->cookie('name');
+
+<!-- Laravel headers and request -->
+- Headers are used to provide additional information about the request or response.
+- Headers are used to control the behavior of the request or response, such as caching, content type, and authentication.
+- Headers are sent with every request and response, allowing the server and client to communicate effectively.
+
+[ Headers ]
+    - content-type : text/plain  image/png  application/json
+    - cache
+    - .... 
+
+* setting a header 
+    $response = new Response();
+    return $response->withHeaders([
+        "Content-type" => "application/json",
+    ]);
+
+* getting headers 
+    dd($request->header());
+
+[ Request ] 
+    -  dd($request->url(), $request->fullUrl());
+    url     : gives you the main url of the site  { http://127.0.0.1:8000/request }
+    fullUrl : give you the main url + queries  { http://127.0.0.1:8000/request?query=someTexthere }
+
+    - dd($request->path());
+        : this will give you what is next the main url  { http://127.0.0.1:8000/request } = request is the path 
+
+    - dd($request->is('request'));   
+        : it check if you're in the same path you give it, if yes it gives you TRUE i not FALSE
+
+    - dd($request->host());     
+        : this will gives you the host
+
+    - dd($request->method());    
+        : gives you which method you are using in the browser
+
+    - dd($request->isMethod(''methodName));
+        : check if you're using the same method
+
+
+<!-- how to change the messages -->
+- go to your request class and add this function : 
+    public function messages() {
+        return [
+            'name.required' => 'The name field is required.',
+            'name.string' => 'The name field must be a string.',
+        ];
+    }
+
+
+<!-- get latest creations -->
+- $latest = ModelName::latest()->get();
+    : this is how we get the latest creation in the database
+
+<!-- relashioships in laravel -->
+- Relationships in Laravel are used to define how different models are related to each other.
+- Laravel provides several types of relationships, including 
+    one-to-one, 
+    one-to-many, 
+    many-to-many, 
+    and polymorphic relationships.
+
+- $table->unsignedBigInteger('profile_id')->after('id');
+- $table->foreign('profile_id')->references('id')->on('profiles')->onDelete('cascade')->onUpdate('cascade');
+
+<!-- getting user id -->
+$requiredFields['profile_id'] = Auth::id();
+
+<!-- getting publications for a user -->
+- in your model : 
+    public function publications() {
+        return $this->hasMany(Publication::class);
+    }
+
+- get them in your blade : 
+    $profile->publications
+
+<!-- laravel permissions -->
+- authentification is just to allow users connect to the system 
+- the rules and policies that control access to resources and determine what actions users or systems can perform
+
+Example : ! this is not the best way you can do
+    $publisherId = Auth::id();
+    $publicationId = $publication->profile_id;
+    // if ther aren't match : forebeidden error
+    if($publicationId !== $publisherId) {
+        abort(403);
+    }
+
+- authorisations / permissions in laravel :
+    gates    : routes ( used to authorize user actions based on logic defined in a centralized place. They are a part of 
+                Laravel's authorization system, which also includes policies. Gates are ideal for simple, closure-based authorization. )
+    policies : controllers
+
+📍 Gates :
+    - go to app/Providers/AuthServiceProvider.php
+    - public function boot(): void
+        {
+            Gate::define('update-publication', function (GenericUser $profile, Publication $publication) {
+                return $profile->id === $publication->profile_id;
+            });
+        }
+    * how to use the gate 
+        - if(Gate::allows('update-publication', $publication) !== true){
+            abort(403);
+        };
+        - Gate::authorize('update-publication', $publication);
+
+📍 Policies :
+    - classes that organize authorization logic around a particular model or resource. They are part of Laravel's 
+    authorization system, which helps you control access to different parts of your application based on user 
+    permissions. 
+    * use of policy 
+        - create a policy class 
+            public function update(GenericUser $user, Publication $publication): bool
+            {
+                return $user->id === $publication->profile_id;
+            }
+        - in your AuthServiceProvider :
+            protected $policies = [
+                Publication::class => PublicationPolicy::class
+            ];
+        - use policy in your controller 
+            * Gate::authorize('update', $publication);
+            * $this->authorize('update', $publication);
+            * if($request->user()->can('update', $publication)) {
+                // check if publication exists
+                if (!$publication) {
+                    return redirect()->route('home')->with('error', 'Publication non trouvée !');
+                }
+                return view('publications.edit', compact('publication'));
+            }
+
+<!-- web services -->
+- Web services are software systems that allow different applications (written in different languages, running on different platforms) 
+    to communicate and exchange data over the internet — typically using HTTP.
+
+- They enable machine-to-machine communication, usually in a standardized format like:
+    JSON
+    XML
+
+- A REST Web Service (or RESTful API) is a type of web service that follows the principles of REST (Representational State Transfer) 
+        a lightweight architecture style for designing networked applications, especially for the web.
+    * RESTful APIs allow different systems to communicate over HTTP using simple URL patterns and HTTP methods.
+
+- create your restful api 
+    * create a controller for the api 
+    * declare your routes in your Routes/api.php 
+        Route::apiResource('profiles', ProfileController::class);
+    * using json for sending data :
+        return response()->json($profiles);
+
+- CRUD operations using ( postman | thunder client extension )
+    ✅ show : 
+        public function show(Profile $profile)
+        {
+            return $profile;
+        }
+    ✅ delete 
+        public function destroy(Profile $profile)
+        {
+            $profile->delete();
+            return response()->json([
+                'profileId' => $profile->id,
+                'message' => 'Profile deleted successfully',
+            ]);
+        }
+
+- returning resurce instead of profile :
+    * create a resource 
+    * in yout apiController : return new ProfileResource($profile);
+    * if you want to add fields just update your resource [ normalisation ] :
+        public function toArray(Request $request): array
+        {
+            $values = parent::toArray($request);
+            $values['image'] = url('storage/' . $values['image']);
+            return $values;
+        }
+    * for all profiles :
+        public function index()
+        {
+            return ProfileResource::collection(Profile::all());
+        }
+
+- changing html to json in case not found :
+    * go to exception/handler.php 
+
+
+<!-- laravel cache -->
+- Cache : used to store data temporarily so that it can be retrieved quickly without repeatedly querying a database 
+    or performing time-consuming operations.
+- system that stores frequently accessed data in memory (or fast storage) to improve performance and reduce load. 
+
+* Laravel supports various cache drivers such as:
+    〽 file (default)
+    〽 database
+    〽 redis
+    〽 memcached
+    〽 array
+
+📍 Database cache 
+    - create a table in db 
+    - go to config/cache.php 
+        and change the default (file) to (database) cache : 'default' => env('CACHE_STORE', 'database'),
+    - got to .env and change the cache storage
+    [ using database cache ]
+    ------------------------
+        - to check if cache exists use : Cache::has('key');
+        - to get the cahce use : Cache::get('key');
+        - to register cache use : Cache::put('profile_'. $cacheKey, $profile, 60 * 60 * 24);
+
+        Example : 
+            public function show(Profile $profile) {
+                // if profile not found
+                if (!$profile) {
+                    return abort(403);
+                } else {
+                    $cacheKey = 'profile_' . $profile->id;
+                    // check if cache exists 
+                    if(Cache::has($cacheKey) === true) {
+                        Cache::get($cacheKey);
+                    } else {
+                        Cache::put($cacheKey, $profile, 30 * 60);
+                    }
+                    return view('profile.show', compact(['profile']));
+                }
+            }
+
+        Improvement : 
+            public function show(Profile $profile){
+                $cacheKey = 'profile_' . $profile->id;
+                // Cache or retrieve the profile by ID
+                $cachedProfile = Cache::remember($cacheKey, 60 * 60, function () use ($profile) {
+                    return Profile::findOrFail($profile->id);
+                });
+                return view('profile.show', ['profile' => $cachedProfile]);
+            }
+
+<!-- web services cache -->
+- for all crud operations and for small projects the best method is 
+    to delete the cache in Create, Update and Delete operations using the forget() cache method 
+
+<!-- Query builder -->
+-  build and run database queries. It works on top of Laravel’s database abstraction layer, and is useful when you 
+    don’t need the full power of Eloquent models but still want clean, readable database queries.
+
+- Using DB facade :
+    DB::table('tabeName')->get();
+    DB::table('tablename')->where('column', 'value')->first();
+    DB::table('tablename')->where('column', 'value')->value('column1', 'column2');
+    DB::table('tablename')->pluck('column');
+    DB::table('tablename')->select('[column1', 'column2']);
+
+    [ using agregates ]
+    ------------------- 
+        min('column');
+        max('column');
+        count('column');
+        avg('column');
+        sum('column');
+
+    [ debuggin ]
+    ------------ 
+    DB::table('tablename')->pluck('column')->dd();
+    DB::table('tablename')->pluck('column')->dump();
+
+<!-- Laravel Sessions -->
+- go to .env file 
+- search for session_driver
+- update it to database 
+
+[ write and get session ]
+------------------------- 
+    $lastVisit = $request->session()->get('visitedTime', 0);
+    $request->session()->put('visitedTime', $lastVisit + 1);
+    $visitedTime = $request->session()->get('visitedTime');
+
+    <!-- using increment and decrement functions -->
+    $visitedTime = $request->session()->increment('visitedTime');
+    $visitedTime = $request->session()->decrement('visitedTime');
+
+[ delete a session ]
+-------------------- 
+    $request->session()->delete('visitedTime');
+    $request->session()->forget('visitedTime');
+
+<!-- laravel vite -->
+- Laravel 12 has made Vite its default frontend asset bundle
+- This modern build tool offers significant advantages for developers, including lightning-fast 
+    development server speeds and efficient production bundling. 
+
+* install nodejs 
+* search for laravel vite.
+
+<!-- laravel mailing -->
+- use mailtrap 

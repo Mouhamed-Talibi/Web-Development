@@ -23,4 +23,9 @@
             'description',
             'image',
         ];
+
+        // publications 
+        public function publications() {
+            return $this->hasMany(Publication::class);
+        }
     }

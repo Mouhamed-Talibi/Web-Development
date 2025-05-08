@@ -1,0 +1,167 @@
+<!-- Common Cmd Commands -->
+[ what is CMD ]
+--------------- 
+    stands for Command Prompt. It is a command-line interpreter application available in most Windows operating systems. 
+    It provides a way to interact with the system using text-based commands instead of a graphical interface.
+
+[ Best CMD Program ]
+    Cmder | site : https://cmder.app/
+
+[ Common Cmd Commands ]
+-----------------------
+    📍 Navigation Commands
+        cd ..
+            Return to the parent directory (go back one folder).
+
+        cd "directory\file name"
+            Enter the specified folder.
+
+        cd /
+            Go to the root directory of the current drive.
+
+        cd cmder\
+            Enter the cmder folder from the current location (if it exists).
+
+    📍 Creating Files or Folders
+        md | mkdir "folder_name"
+            Create a new folder.
+
+        md "folder_name" * N
+            Create the same folder multiple times (Note: This syntax doesn't work directly in CMD — needs scripting or loop).
+
+        mkdir ..\ "folder_name"
+            Create a folder in the parent directory without switching to it.
+
+        mkdir C:\ "folder_name"
+            Create a folder on the C drive.
+
+    📍 Listing Files and Folders
+        ls
+            List contents of a directory (works in Linux or in CMD with tools like Git Bash or Cmder).
+
+        dir
+            List files and folders in the current directory (Windows CMD).
+
+    📍 Viewing Directory Structure
+        tree
+            Display the folder structure of the current directory.
+
+        tree "C:\Program Files"
+            Show the folder structure under C:\Program Files.
+
+        tree /a
+            Show the full folder and file structure using ASCII characters.
+
+    📍 Moving and Renaming
+        move folder_name "new_name"
+            Rename a folder.
+
+        move folder_name existing_folder
+            Move a folder into an existing folder.
+
+        move folder_name ..
+            Move the folder to the parent directory.
+
+        move folder_name \
+            Move the folder to the root of the current drive.
+
+    📍 Deleting Files or Folders
+        rd folder_name or rmdir folder_name
+            Remove a folder (only if it's empty).
+
+        rename folder_name "new_name"
+            Rename a folder or file.
+
+        rm folder_name
+            Remove a folder (works in Linux or Bash environments).
+
+        rm -r folder_name
+            Remove a folder and all its contents recursively (Linux/Bash).
+
+        rm -d folder_name
+            Remove empty folders (Linux/Bash).
+
+        rm --help
+            Show help for the rm command.
+
+        cp -r folder_name "new_folder_name"
+            Copy a folder and its contents (Linux/Bash or Git Bash).
+
+    📍 Viewing and Writing to Files
+        echo "text"
+            Print the text to the screen.
+
+        echo "text" > file_name
+            Write text to a file (overwrite existing content).
+
+        echo "text" >> file_name
+            Append text to a file without deleting existing content.
+
+        cat file_name
+            Display the content of a file (Linux/Bash or Git Bash).
+
+        cat *
+            Show contents of all files in the current folder (Linux/Bash).
+
+        cat file_name > new_file_name
+            Copy content from one file to another (Linux/Bash).
+
+    📍 Searching
+        grep "expression" -r
+            Recursively search for an expression in all files (Linux/Bash).
+        
+        grep "expression" -r file_name
+            Search for an expression in a specific file.
+        
+        grep "expression" -r -l
+            List files and folders that contain the expression.
+
+    📍 System and Information 
+        exit
+            Close the command line.
+
+        file file_name
+            Identify the type of file (Linux/Bash).
+
+        move /?
+            Show help for the move command.
+
+        ping site_name
+            Check if a website or server is reachable.
+
+        ctrl + c
+            Stop the currently running command.
+
+        tasklist
+            Show a list of all running processes.
+
+        osk
+            Open the On-Screen Keyboard.
+
+        whoami
+            Show the current logged-in username.
+
+        systeminfo
+            Display detailed system configuration information.
+
+    📍 File/Folder Interaction and Shortcuts
+        explorer folder_name
+            Open a folder in File Explorer.
+        
+        alias
+            Show defined command shortcuts (only available in environments like Git Bash, Cmder, or Linux).
+        
+        alias mo="mouhamed"
+            Define mo as a shortcut for mouhamed.
+        
+        command1 && command2
+            Run two commands in sequence (second runs only if the first succeeds).
+
+    📍 File Attributes (Windows Only)
+        ATTRIB +H +S +R myItem
+            Hide the item and make it system and read-only.
+        
+        ATTRIB -H -S -R myItem
+            Unhide the item and remove system/read-only attributes.
+
+    <!-- TO CONTINUE COMMANDS VISIT THIS WEBSITE : ss64 -->

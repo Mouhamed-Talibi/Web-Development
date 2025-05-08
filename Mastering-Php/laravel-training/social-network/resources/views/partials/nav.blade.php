@@ -13,13 +13,19 @@
                     {{-- auth --}}
                     @auth
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="{{ route('profiles.profiles') }}">Tous les profiles</a>
+                            <a class="nav-link text-light" href="{{ route('profiles.index') }}">Tous les profiles</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" href="{{ route('profiles.create') }}">Creer un Profile</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" href="{{ route('infos.informations') }}">Informations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="{{ route('publications.create') }}">Ajouter publication</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="{{ route('publications.index') }}">Publications</a>
                         </li>
                         <div class="dropdown">
                             <button class="btn btn-primary fw-bold dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -35,7 +41,7 @@
                     {{-- guest ( for visitors ) --}}
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="{{ route('loginForm') }}">Se connecter</a>
+                            <a class="nav-link text-light" href="{{ route('login') }}">Se connecter</a>
                         </li>
                     @endguest
                 </ul>

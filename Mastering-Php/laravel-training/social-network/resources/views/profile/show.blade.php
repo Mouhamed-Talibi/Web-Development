@@ -15,4 +15,15 @@
             
         </div>
     </div>
+    {{-- publications --}}
+    <div class="container py-5 pb-5">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-6">
+                <h2 class="text-start text-primary">Publications</h2>
+                @foreach ($profile->publications as $pub)
+                    <x-publication :canUpdate="Auth::user()->id == $pub->profile_id" :pub="$pub" />
+                @endforeach
+            </div>
+        </div>
+    </div>
 </x-master>

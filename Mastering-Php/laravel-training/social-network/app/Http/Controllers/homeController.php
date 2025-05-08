@@ -1,17 +1,16 @@
 <?php
     namespace App\Http\Controllers;
+    use App\Mail\testMail;
     use Illuminate\Http\Request;
+    use Illuminate\Support\Facades\Mail;
 
     class homeController extends Controller
     {
         // Here write your actions.
         public function index(Request $request) {
-            // pasing some data
-            $users = [
-                [ 'id' => 1, 'name' => 'Med tit', 'email' => 'med.tit@example.com' ],
-                [ 'id' => 2, 'name' => 'Achraf fah', 'email' => 'achraf.fah@example.com' ],
-                [ 'id' => 3, 'name' => 'yassin elb', 'email' => 'yassin.elb@example.com' ]
-            ];
-            return view('index', compact('users'));
+            $lastVisit = $request->session()->get('visitedTime', 0);
+            $request->session()->put('visitedTime', $lastVisit + 1);
+            $visitedTime = $request->session()->get('visitedTime');
+            return view('index', compact('visitedTime'));
         }
     }

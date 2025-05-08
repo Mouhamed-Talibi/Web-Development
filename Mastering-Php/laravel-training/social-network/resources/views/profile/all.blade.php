@@ -11,5 +11,5 @@
     </div>
 
     {{-- using pagination links --}}
-    {{ $profiles->links() }}
+    {{-- {{ $profiles->links() }} --}}
 </x-master>
